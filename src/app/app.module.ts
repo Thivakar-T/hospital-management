@@ -8,10 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { PatientComponent } from './patient/patient.component';
+import { PatientListComponent } from './patient-list/patient-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PatientComponent,
+    PatientListComponent,
+    
   ],
   imports: [
     BrowserModule,
