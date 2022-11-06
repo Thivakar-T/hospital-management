@@ -3,9 +3,13 @@ import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 import { DoctorComponent } from './doctor/doctor.component';
 
+import { AdmissionListComponent } from './admission-list/admission-list.component';
+
 @NgModule({
   declarations: [
-    DoctorComponent
+    DoctorComponent,
+  
+    AdmissionListComponent
   ],
   imports: [
     CommonModule,

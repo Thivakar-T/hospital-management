@@ -8,15 +8,20 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
-
-
+import { NavbarComponent } from './../layout/navbar/navbar.component';
+import { FooterComponent } from './../layout/footer/footer.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatBadgeModule} from '@angular/material/badge';
+import { BedManagementComponent } from './../app/pages/bed-management/bed-management.component';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
-  
+    NavbarComponent,
+    FooterComponent,
+    BedManagementComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,10 @@ import { NgxSpinnerModule } from "ngx-spinner";
     CommonModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
-
+    MatToolbarModule,
+    MatBadgeModule,
+    MatButtonModule
+  
     ],
   providers: [],
   bootstrap: [AppComponent]
