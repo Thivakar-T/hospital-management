@@ -9,12 +9,17 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { DoctorComponent } from './doctor/doctor.component';
+import { WorkersTableComponent } from './workers-table/workers-table.component';
+import { WorkersComponent } from './workers/workers.component';
 
 
 @NgModule({
   declarations: [
     DoctorComponent,
-    WorkersListComponent
+    WorkersListComponent,
+    WorkersTableComponent,
+    WorkersComponent
+   
   ],
   imports: [
     CommonModule,
