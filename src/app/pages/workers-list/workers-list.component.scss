@@ -1,0 +1,42 @@
+table {
+  width: 100%;
+}
+
+.data-table {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.icons {
+  color: red;
+}
+
+#color {
+  color: black;
+
+}
+
+.butt {
+  border: none;
+  background-color: white
+}
+
+.table-edit-icon {
+  font-size: 17px;
+  margin-bottom: -7px;
+}
+
+.table-delete-icon {
+  font-size: 17px;
+  margin-bottom: -7px;
+}
+
+.table-view-icon {
+  font-size: 20px;
+  margin-bottom: -7px;
+  color: rgb(18, 21, 197);
+}
