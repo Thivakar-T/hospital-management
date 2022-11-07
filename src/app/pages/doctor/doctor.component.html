@@ -1,156 +1,340 @@
-<section class="h-100 ">
-    <div class="container-fluid py-5 h-100">
+<section class="vh-300" style="background-color: #eee;">
+    <div class="container-fluid h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col">
-                <div class="card card-registration my-4">
-                    <div class="card-body p-md-5 text-black">
-                        <h2 class="mb-5 text-uppercase font-weight-bold">Doctor registration form</h2>
-                        <form>
-                            <div class="row">
-                                <div class="col-md-4 mb-4">
-                                    <div class="form-outline">
-                                        <label class="form-label font-weight-bold" for="form3Example1m">First Name 
-                                            <span class="text-danger">*</span></label>
-                                        <input type="text" id="form3Example1m" class="form-control form-control-lg" />
+            <div class="col-lg-12 col-xl-11">
+                <div class="card mt-4 text-black" style="border-radius: 25px;">
+                    <div class="card-body p-md-5">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 col-lg-4 col-xl-4 order-2 order-lg-1">
+                                <form class="mx-1 mx-md-4" [formGroup]="loginform" (ngSubmit)="submit()">
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline  flex-fill mb-0">
+                                            <input type="text" class="form-control " id="name" formControlName="fName"
+                                                placeholder="First Name"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['fName'].errors || f['fName'].touched&& f['fName'].errors }" />
+                                            <div *ngIf="Submitted && f['fName'].errors|| f['fName'].touched&& f['fName'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['fName'].errors['required']">First Name is required
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="form-outline">
-                                        <label class="form-label font-weight-bold" for="form3Example1n">Last Name 
-                                            <span class="text-danger">*</span></label>
-                                        <input type="text" id="form3Example1n" class="form-control form-control-lg" />
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="email" class="form-control " id="name" formControlName="Email"
+                                                placeholder="Email"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Email'].errors || f['Email'].touched&& f['Email'].errors }" />
+                                            <div *ngIf="Submitted && f['Email'].errors|| f['Email'].touched&& f['Email'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Email'].errors['required']">Email is required
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="form-outline">
-                                        <label class="form-label font-weight-bold" for="form3Example1n">Doctor No 
-                                            <span class="text-danger">*</span></label>
-                                        <input type="number" id="form3Example1n" class="form-control form-control-lg" />
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" class="form-control " id="Qualification"
+                                                formControlName="Qualification" placeholder="Qualification"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Qualification'].errors || f['Qualification'].touched&& f['Qualification'].errors }" />
+                                            <div *ngIf="Submitted && f['Qualification'].errors|| f['Qualification'].touched&& f['Qualification'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Qualification'].errors['required']">Qualification is
+                                                    required
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" for="form3Example4c">Date Of Birth<span
+                                                    class="text-danger">*</span></label>
+                                            <input type="date" class="form-control " id="Weight"
+                                                formControlName="Weight" placeholder="Weight"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Weight'].errors || f['Weight'].touched&& f['Weight'].errors }" />
+                                            <div *ngIf="Submitted && f['Weight'].errors|| f['Weight'].touched&& f['Weight'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Weight'].errors['required']">Date Of Birth is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="number" class="form-control " id="Age" formControlName="Age"
+                                                placeholder="Age"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Age'].errors || f['Age'].touched&& f['Age'].errors }" />
+                                            <div *ngIf="Submitted && f['Age'].errors|| f['Age'].touched&& f['Age'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Age'].errors['required']">Age is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" class="form-control " id="name" formControlName="Adress1"
+                                                placeholder="Address-1 "
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Adress1'].errors || f['Adress1'].touched&& f['Adress1'].errors }" />
+                                            <div *ngIf="Submitted && f['Adress1'].errors|| f['Adress1'].touched&& f['Adress1'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Adress1'].errors['required']">Adress line1 is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <select class="form-select" formControlName="State" id="State"
+                                                aria-label="Default select example"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['State'].errors || f['State'].touched&& f['State'].errors }">
+
+                                                <option value="">Choose State</option>
+
+                                            </select>
+                                            <div *ngIf="Submitted && f['State'].errors|| f['State'].touched&& f['State'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['State'].errors['required']">State is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-4 mb-4">
-                                    <div class="form-outline">
-                                        <label class="form-label font-weight-bold" for="form3Example1m1">Email   <span class="text-danger">*</span></label>
-                                        <input type="email" id="form3Example1m1" class="form-control form-control-lg" />
+                            <div class="col-md-10 col-lg-4 col-xl-4 order-2 order-lg-1">
+                                <form class="mx-1 mx-md-4" [formGroup]="loginform" (ngSubmit)="submit()">
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="email" class="form-control " id="name" formControlName="lName"
+                                                placeholder="Last Name"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['lName'].errors || f['lName'].touched&& f['lName'].errors }" />
+                                            <div *ngIf="Submitted && f['lName'].errors|| f['lName'].touched&& f['lName'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['lName'].errors['required']">Last Name is required
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="form-outline">
-                                        <label class="form-label  font-weight-bold" for="form3Example1n1">Designation  <span class="text-danger">*</span></label>
-                                        <input type="text" id="form3Example1n1" class="form-control form-control-lg" />
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" class="form-control " id="name"
+                                                formControlName="Designation" placeholder="Designation"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Designation'].errors || f['Designation'].touched&& f['Designation'].errors }" />
+                                            <div *ngIf="Submitted && f['Designation'].errors|| f['Designation'].touched&& f['Designation'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Designation'].errors['required']">Designation is required
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="form-outline">
-                                        <label class="form-label font-weight-bold" for="form3Example1n1">Phone No <span class="text-danger">*</span></label>
-                                        <input type="number" id="form3Example1n1" class="form-control form-control-lg" />
+
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+
+                                        <div class="form-outline flex-fill mb-0">
+                                            <select class="form-select" formControlName="gender" id="gender"
+                                                aria-label="Default select example"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['gender'].errors || f['gender'].touched&& f['gender'].errors }">
+
+                                                <option value="">choose Gender</option>
+                                                <option value="female">female</option>
+                                                <option value="male">Male</option>
+
+                                            </select>
+                                            <div *ngIf="Submitted && f['gender'].errors|| f['gender'].touched&& f['gender'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['gender'].errors['required']">Gender is required
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4 mb-4">
-                                    <div class="form-outline">
-                                        <label class="form-label font-weight-bold" for="form3Example1m1">Qualification   <span class="text-danger">*</span></label>
-                                        <input type="email" id="form3Example1m1" class="form-control form-control-lg" />
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" for="form3Example4c">Photo<span
+                                                    class="text-danger">*</span></label>
+
+                                            <input type="file" class="form-control " id="name" formControlName="Photo"
+                                                placeholder="Photo"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Photo'].errors || f['Photo'].touched&& f['Photo'].errors }" />
+                                            <div *ngIf="Submitted && f['Photo'].errors|| f['Photo'].touched&& f['Photo'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Photo'].errors['required']">Photo is required
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="form-outline">
-                                        <label class="form-label  font-weight-bold" for="form3Example1n1">Certificate - Photo  <span class="text-danger">*</span></label>
-                                        <input type="text" id="form3Example1n1" class="form-control form-control-lg" />
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" class="form-control " id="Title" formControlName="Title"
+                                                placeholder="Clinic (OR) Hospital"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Title'].errors || f['Title'].touched&& f['Title'].errors }" />
+                                            <div *ngIf="Submitted && f['Title'].errors|| f['Title'].touched&& f['Title'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Title'].errors['required']">Clinic (OR) Hospital
+                                                    is
+                                                    required
+
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4 mb-4">
-                                    <div class="form-outline">
-                                        <label class="form-label font-weight-bold" for="form3Example1n1">Specialist - In <span class="text-danger">*</span></label>
-                                        <input type="number" id="form3Example1n1" class="form-control form-control-lg" />
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" class="form-control " id="Adress2"
+                                                formControlName="Adress2" placeholder="Address-2 "
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Adress2'].errors || f['Adress2'].touched&& f['Adress2'].errors }" />
+                                            <div *ngIf="Submitted && f['Adress2'].errors|| f['Adress2'].touched&& f['Adress2'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Adress2'].errors['required']">Adress line2 is required
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
-                                </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <select class="form-select" formControlName="City" id="City"
+                                                aria-label="Default select example"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['City'].errors || f['City'].touched&& f['City'].errors }">
+
+                                                <option value="">Select City</option>
+
+                                            </select>
+                                            <div *ngIf="Submitted && f['City'].errors|| f['City'].touched&& f['City'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['City'].errors['required']">City is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
 
-                            <!--<div class="form-outline mb-4">
-                            <input type="text" id="form3Example8" class="form-control form-control-lg" />
-                            <label class="form-label" for="form3Example8">Address</label>
+                            <div class="col-md-10 col-lg-4 col-xl-4 order-2 order-lg-1">
+                                <form class="mx-1 mx-md-4" [formGroup]="loginform" (ngSubmit)="submit()">
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="number" class="form-control " id="DoctorNo"
+                                                formControlName="DoctorNo" placeholder="Doctor Number"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['DoctorNo'].errors || f['DoctorNo'].touched&& f['DoctorNo'].errors }" />
+                                            <div *ngIf="Submitted && f['DoctorNo'].errors|| f['DoctorNo'].touched&& f['DoctorNo'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['DoctorNo'].errors['required']">Doctor Number is
+                                                    required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="number" class="form-control " id="PhoneNo"
+                                                formControlName="PhoneNo" placeholder="Phone Number"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['PhoneNo'].errors || f['PhoneNo'].touched&& f['PhoneNo'].errors }" />
+                                            <div *ngIf="Submitted && f['PhoneNo'].errors|| f['PhoneNo'].touched&& f['PhoneNo'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['PhoneNo'].errors['required']">Phone Number is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" class="form-control " id="name"
+                                                formControlName="Specialist" placeholder="Specialist-In"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Specialist'].errors || f['Specialist'].touched&& f['Specialist'].errors }" />
+                                            <div *ngIf="Submitted && f['Specialist'].errors|| f['Specialist'].touched&& f['Specialist'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Specialist'].errors['required']">Specialist-In is
+                                                    required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <label class="form-label" for="form3Example4c">Certificate-Photo<span
+                                                    class="text-danger">*</span></label>
+                                            <input type="file" class="form-control " id="name"
+                                                formControlName="Certificate" placeholder="Certificate-Photo"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Certificate'].errors || f['Certificate'].touched&& f['Certificate'].errors }" />
+                                            <div *ngIf="Submitted && f['Certificate'].errors|| f['Certificate'].touched&& f['Certificate'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Certificate'].errors['required']">Certificate-Photo is
+                                                    required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <select class="form-select" formControlName="Marital" id="Marital"
+                                                aria-label="Default select example"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Marital'].errors || f['Marital'].touched&& f['Marital'].errors }">
+
+                                                <option value="">choose Marital Status</option>
+                                                <option value="female">Married</option>
+                                                <option value="male">Un-Married</option>
+
+                                            </select>
+                                            <div *ngIf="Submitted && f['Marital'].errors|| f['Marital'].touched&& f['Marital'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Marital'].errors['required']">Marital Status is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <select class="form-select" formControlName="Country" id="Country"
+                                                aria-label="Default select example"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Country'].errors || f['Country'].touched&& f['Country'].errors }">
+
+                                                <option value="">Choose Country</option>
+
+                                            </select>
+                                            <div *ngIf="Submitted && f['Country'].errors|| f['Country'].touched&& f['Country'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Country'].errors['required']">Country is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-center  ms-5 mb-3 mb-lg-4">
+                                        <button type="submit"
+                                            class="btn btn-primary mt-4 btn-lg">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-
-                        <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
-
-                            <h6 class="mb-0 me-4">Gender: </h6>
-
-                            <div class="form-check form-check-inline mb-0 me-4">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                                    value="option1" />
-                                <label class="form-check-label" for="femaleGender">Female</label>
-                            </div>
-
-                            <div class="form-check form-check-inline mb-0 me-4">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                                    value="option2" />
-                                <label class="form-check-label" for="maleGender">Male</label>
-                            </div>
-
-                            <div class="form-check form-check-inline mb-0">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
-                                    value="option3" />
-                                <label class="form-check-label" for="otherGender">Other</label>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6 mb-4">
-
-                                <select class="select">
-                                    <option value="1">State</option>
-                                    <option value="2">Option 1</option>
-                                    <option value="3">Option 2</option>
-                                    <option value="4">Option 3</option>
-                                </select>
-
-                            </div>
-                            <div class="col-md-6 mb-4">
-
-                                <select class="select">
-                                    <option value="1">City</option>
-                                    <option value="2">Option 1</option>
-                                    <option value="3">Option 2</option>
-                                    <option value="4">Option 3</option>
-                                </select>
-
-                            </div>
-                        </div>
-
-                        <div class="form-outline mb-4">
-                            <input type="text" id="form3Example9" class="form-control form-control-lg" />
-                            <label class="form-label" for="form3Example9">DOB</label>
-                        </div>
-
-                        <div class="form-outline mb-4">
-                            <input type="text" id="form3Example90" class="form-control form-control-lg" />
-                            <label class="form-label" for="form3Example90">Pincode</label>
-                        </div>
-
-                        <div class="form-outline mb-4">
-                            <input type="text" id="form3Example99" class="form-control form-control-lg" />
-                            <label class="form-label" for="form3Example99">Course</label>
-                        </div>
-
-                        <div class="form-outline mb-4">
-                            <input type="text" id="form3Example97" class="form-control form-control-lg" />
-                            <label class="form-label" for="form3Example97">Email ID</label>
-                        </div>
- -->
-                            <div class="d-flex justify-content-end pt-3">
-                                <button type="button" class="btn btn-light btn-lg">Reset all</button>
-                                <button type="button" class="btn btn-warning btn-lg ms-2">Submit form</button>
-                            </div>
-                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
