@@ -9,9 +9,9 @@ const routes: Routes = [
     path: 'pages',
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
   },
-  {path:'',component:PatientformComponent},
+  // {path:'',component:PatientformComponent},
   {path:'patientform',component:PatientformComponent},
-  {path:'patientform/:data',component:PatientformComponent},
+  // {path:'patientform/:data',component:PatientformComponent},
   {path:'patientlist',component:PatientlistComponent}
 ];
 
