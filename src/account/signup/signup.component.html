@@ -1,0 +1,673 @@
+<section class="vh-300" style="background-color: #eee;">
+    <div class="container-fluid h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-12 col-xl-11">
+                <div class="card mt-4 text-black" style="border-radius: 25px;">
+                    <div style="background-color: rgb(13, 94, 255);  border-radius: 25px 25px 0px 0px;">
+                        <div>
+                            <h1 id="para" class="text-light text-center mt-3"
+                                style=" color: rgb(255, 255, 255); text-shadow: 2px 2px  rgb(0, 0, 0); "><b>ENTER
+                                    DETAILS!</b></h1>
+
+                        </div>
+                    </div>
+                    <form class="mx-1 mx-md-4" [formGroup]="signupform" (ngSubmit)="onSubmit()">
+                        <div class="card-body p-md-5">
+                            <div class="row justify-content-center">
+                                <div class="col-md-10 col-lg-4 col-xl-4 order-2 order-lg-1">
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+
+                                        <div class="form-outline flex-fill mb-0">
+
+                                            <input type="number" class="form-control " id="PatientNo"
+                                                formControlName="PatientNo" placeholder="Patient Number"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['PatientNo'].errors || f['PatientNo'].touched&& f['PatientNo'].errors }" />
+                                            <div *ngIf="Submitted && f['PatientNo'].errors|| f['PatientNo'].touched&& f['PatientNo'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['PatientNo'].errors['required']">Patient Number is
+                                                    required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" class="form-control " id="Title" formControlName="Title"
+                                                placeholder="Title"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Title'].errors || f['Title'].touched&& f['Title'].errors }" />
+                                            <div *ngIf="Submitted && f['Title'].errors|| f['Title'].touched&& f['Title'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Title'].errors['required']">Title is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" class="form-control " id="name" formControlName="fName"
+                                                placeholder="First Name"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['fName'].errors || f['fName'].touched&& f['fName'].errors }" />
+                                            <div *ngIf="Submitted && f['fName'].errors|| f['fName'].touched&& f['fName'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['fName'].errors['required']">First Name is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="email" class="form-control " id="name" formControlName="lName"
+                                                placeholder="Last Name"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['lName'].errors || f['lName'].touched&& f['lName'].errors }" />
+                                            <div *ngIf="Submitted && f['lName'].errors|| f['lName'].touched&& f['lName'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['lName'].errors['required']">Last Name is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="number" class="form-control " id="MobileNo"
+                                                formControlName="MobileNo" placeholder="Mobile Number"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['MobileNo'].errors || f['MobileNo'].touched&& f['MobileNo'].errors }" />
+                                            <div *ngIf="Submitted && f['MobileNo'].errors|| f['MobileNo'].touched&& f['MobileNo'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['MobileNo'].errors['required']">Mobile Number is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="number" class="form-control " id="AlternativeNo"
+                                                formControlName="AlternativeNo" placeholder="Alternative Mobile Number"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['AlternativeNo'].errors || f['AlternativeNo'].touched&& f['AlternativeNo'].errors }" />
+                                            <div *ngIf="Submitted && f['AlternativeNo'].errors|| f['AlternativeNo'].touched&& f['AlternativeNo'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['AlternativeNo'].errors['required']">Alternative Mobile
+                                                    Number is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <select class="form-select" formControlName="Marital" id="Marital"
+                                                aria-label="Default select example"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Marital'].errors || f['Marital'].touched&& f['Marital'].errors }">
+
+                                                <option value="">Gender</option>
+                                                <option value="female">female</option>
+                                                <option value="male">Male</option>
+
+                                            </select>
+                                            <div *ngIf="Submitted && f['Marital'].errors|| f['Marital'].touched&& f['Marital'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Marital'].errors['required']">Marital Status is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="number" class="form-control " id="Age" formControlName="Age"
+                                                placeholder="Age"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Age'].errors || f['Age'].touched&& f['Age'].errors }" />
+                                            <div *ngIf="Submitted && f['Age'].errors|| f['Age'].touched&& f['Age'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Age'].errors['required']">Age is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="col-md-10 col-lg-4 col-xl-4 order-2 order-lg-1">
+                                    <!-- <form class="mx-1 mx-md-4" [formGroup]="signupform" (ngSubmit)="onSubmit()"> -->
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <select class="form-select" formControlName="BloodGroup" id="BloodGroup"
+                                                aria-label="Default select example"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['BloodGroup'].errors || f['BloodGroup'].touched&& f['BloodGroup'].errors }">
+
+                                                <option value="">choose BloodGroup</option>
+                                                <option value="A+"> (A+)</option>
+                                                <option value="A-"> (A-)</option>
+                                                <option value="B+"> (B+)</option>
+                                                <option value="B-"> (B-)</option>
+                                                <option value="O+"> (O+)</option>
+                                                <option value="O-"> (O-)</option>
+                                                <option value="AB+"> (AB+)</option>
+                                                <option value="AB-"> (AB-)</option>
+
+                                            </select>
+                                            <div *ngIf="Submitted && f['BloodGroup'].errors|| f['BloodGroup'].touched&& f['BloodGroup'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['BloodGroup'].errors['required']">Blood Group is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="number" class="form-control " id="Weight"
+                                                formControlName="Weight" placeholder="Weight"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Weight'].errors || f['Weight'].touched&& f['Weight'].errors }" />
+                                            <div *ngIf="Submitted && f['Weight'].errors|| f['Weight'].touched&& f['Weight'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Weight'].errors['required']">Weight is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" class="form-control " id="name" formControlName="Adress1"
+                                                placeholder="Adress 1"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Adress1'].errors || f['Adress1'].touched&& f['Adress1'].errors }" />
+                                            <div *ngIf="Submitted && f['Adress1'].errors|| f['Adress1'].touched&& f['Adress1'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Adress1'].errors['required']">Adress line1 is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" class="form-control " id="Adress2"
+                                                formControlName="Adress2" placeholder="Adress 2"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Adress2'].errors || f['Adress2'].touched&& f['Adress2'].errors }" />
+                                            <div *ngIf="Submitted && f['Adress2'].errors|| f['Adress2'].touched&& f['Adress2'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Adress2'].errors['required']">Adress line2 is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" class="form-control " id="name"
+                                                formControlName="MotherName" placeholder="Mother Name"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['MotherName'].errors || f['MotherName'].touched&& f['MotherName'].errors }" />
+                                            <div *ngIf="Submitted && f['MotherName'].errors|| f['MotherName'].touched&& f['MotherName'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['MotherName'].errors['required']">Mother Name is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" class="form-control " id="name"
+                                                formControlName="SpouseName" placeholder="Spouse Name"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Email'].errors || f['SpouseName'].touched&& f['SpouseName'].errors }" />
+                                            <div *ngIf="Submitted && f['SpouseName'].errors|| f['SpouseName'].touched&& f['SpouseName'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['SpouseName'].errors['required']">Spouse Name is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <select class="form-select" formControlName="gender" id="gender"
+                                                aria-label="Default select example"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['gender'].errors || f['gender'].touched&& f['gender'].errors }">
+
+                                                <option value="">choose Gender</option>
+                                                <option value="female">female</option>
+                                                <option value="male">Male</option>
+
+                                            </select>
+                                            <div *ngIf="Submitted && f['gender'].errors|| f['gender'].touched&& f['gender'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['gender'].errors['required']">Gender is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="number" class="form-control " id="name"
+                                                formControlName="Portal" placeholder="Portal code"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Portal'].errors || f['Portal'].touched&& f['Portal'].errors }" />
+                                            <div *ngIf="Submitted && f['Portal'].errors|| f['Portal'].touched&& f['Portal'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Portal'].errors['required']">Portal code is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- </form> -->
+                                </div>
+
+                                <div class="col-md-10 col-lg-4 col-xl-4 order-2 order-lg-1">
+                                    <!-- <form class="mx-1 mx-md-4" [formGroup]="signupform" (ngSubmit)="onSubmit()"> -->
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <select class="form-select" formControlName="Country" id="Country"
+                                                aria-label="Default select example"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Country'].errors || f['Country'].touched&& f['Country'].errors }">
+
+                                                <option value="" selected>Select country</option>
+                                                <option value="AF">Afghanistan</option>
+                                                <option value="AX">&Aring;land Islands</option>
+                                                <option value="AL">Albania</option>
+                                                <option value="DZ">Algeria</option>
+                                                <option value="AS">American Samoa</option>
+                                                <option value="AD">Andorra</option>
+                                                <option value="AO">Angola</option>
+                                                <option value="AI">Anguilla</option>
+                                                <option value="AQ">Antarctica</option>
+                                                <option value="AG">Antigua and Barbuda</option>
+                                                <option value="AR">Argentina</option>
+                                                <option value="AM">Armenia</option>
+                                                <option value="AW">Aruba</option>
+                                                <option value="AU">Australia</option>
+                                                <option value="AT">Austria</option>
+                                                <option value="AZ">Azerbaijan</option>
+                                                <option value="BS">Bahamas</option>
+                                                <option value="BH">Bahrain</option>
+                                                <option value="BD">Bangladesh</option>
+                                                <option value="BB">Barbados</option>
+                                                <option value="BY">Belarus</option>
+                                                <option value="BE">Belgium</option>
+                                                <option value="BZ">Belize</option>
+                                                <option value="BJ">Benin</option>
+                                                <option value="BM">Bermuda</option>
+                                                <option value="BT">Bhutan</option>
+                                                <option value="BO">Bolivia, Plurinational State of</option>
+                                                <option value="BA">Bosnia and Herzegovina</option>
+                                                <option value="BW">Botswana</option>
+                                                <option value="BV">Bouvet Island</option>
+                                                <option value="BR">Brazil</option>
+                                                <option value="IO">British Indian Ocean Territory</option>
+                                                <option value="BN">Brunei Darussalam</option>
+                                                <option value="BG">Bulgaria</option>
+                                                <option value="BF">Burkina Faso</option>
+                                                <option value="BI">Burundi</option>
+                                                <option value="KH">Cambodia</option>
+                                                <option value="CM">Cameroon</option>
+                                                <option value="CA">Canada</option>
+                                                <option value="CV">Cape Verde</option>
+                                                <option value="KY">Cayman Islands</option>
+                                                <option value="CF">Central African Republic</option>
+                                                <option value="TD">Chad</option>
+                                                <option value="CL">Chile</option>
+                                                <option value="CN">China</option>
+                                                <option value="CX">Christmas Island</option>
+                                                <option value="CC">Cocos (Keeling) Islands</option>
+                                                <option value="CO">Colombia</option>
+                                                <option value="KM">Comoros</option>
+                                                <option value="CG">Congo</option>
+                                                <option value="CD">Congo, the Democratic Republic of the</option>
+                                                <option value="CK">Cook Islands</option>
+                                                <option value="CR">Costa Rica</option>
+                                                <option value="CI">C&ocirc;te d'Ivoire</option>
+                                                <option value="HR">Croatia</option>
+                                                <option value="CU">Cuba</option>
+                                                <option value="CY">Cyprus</option>
+                                                <option value="CZ">Czech Republic</option>
+                                                <option value="DK">Denmark</option>
+                                                <option value="DJ">Djibouti</option>
+                                                <option value="DM">Dominica</option>
+                                                <option value="DO">Dominican Republic</option>
+                                                <option value="EC">Ecuador</option>
+                                                <option value="EG">Egypt</option>
+                                                <option value="SV">El Salvador</option>
+                                                <option value="GQ">Equatorial Guinea</option>
+                                                <option value="ER">Eritrea</option>
+                                                <option value="EE">Estonia</option>
+                                                <option value="ET">Ethiopia</option>
+                                                <option value="FK">Falkland Islands (Malvinas)</option>
+                                                <option value="FO">Faroe Islands</option>
+                                                <option value="FJ">Fiji</option>
+                                                <option value="FI">Finland</option>
+                                                <option value="FR">France</option>
+                                                <option value="GF">French Guiana</option>
+                                                <option value="PF">French Polynesia</option>
+                                                <option value="TF">French Southern Territories</option>
+                                                <option value="GA">Gabon</option>
+                                                <option value="GM">Gambia</option>
+                                                <option value="GE">Georgia</option>
+                                                <option value="DE">Germany</option>
+                                                <option value="GH">Ghana</option>
+                                                <option value="GI">Gibraltar</option>
+                                                <option value="GR">Greece</option>
+                                                <option value="GL">Greenland</option>
+                                                <option value="GD">Grenada</option>
+                                                <option value="GP">Guadeloupe</option>
+                                                <option value="GU">Guam</option>
+                                                <option value="GT">Guatemala</option>
+                                                <option value="GG">Guernsey</option>
+                                                <option value="GN">Guinea</option>
+                                                <option value="GW">Guinea-Bissau</option>
+                                                <option value="GY">Guyana</option>
+                                                <option value="HT">Haiti</option>
+                                                <option value="HM">Heard Island and McDonald Islands</option>
+                                                <option value="VA">Holy See (Vatican City State)</option>
+                                                <option value="HN">Honduras</option>
+                                                <option value="HK">Hong Kong</option>
+                                                <option value="HU">Hungary</option>
+                                                <option value="IS">Iceland</option>
+                                                <option value="IN">India</option>
+                                                <option value="ID">Indonesia</option>
+                                                <option value="IR">Iran, Islamic Republic of</option>
+                                                <option value="IQ">Iraq</option>
+                                                <option value="IE">Ireland</option>
+                                                <option value="IM">Isle of Man</option>
+                                                <option value="IL">Israel</option>
+                                                <option value="IT">Italy</option>
+                                                <option value="JM">Jamaica</option>
+                                                <option value="JP">Japan</option>
+                                                <option value="JE">Jersey</option>
+                                                <option value="JO">Jordan</option>
+                                                <option value="KZ">Kazakhstan</option>
+                                                <option value="KE">Kenya</option>
+                                                <option value="KI">Kiribati</option>
+                                                <option value="KP">Korea, Democratic People's Republic of</option>
+                                                <option value="KR">Korea, Republic of</option>
+                                                <option value="KW">Kuwait</option>
+                                                <option value="KG">Kyrgyzstan</option>
+                                                <option value="LA">Lao People's Democratic Republic</option>
+                                                <option value="LV">Latvia</option>
+                                                <option value="LB">Lebanon</option>
+                                                <option value="LS">Lesotho</option>
+                                                <option value="LR">Liberia</option>
+                                                <option value="LY">Libyan Arab Jamahiriya</option>
+                                                <option value="LI">Liechtenstein</option>
+                                                <option value="LT">Lithuania</option>
+                                                <option value="LU">Luxembourg</option>
+                                                <option value="MO">Macao</option>
+                                                <option value="MK">Macedonia, the former Yugoslav Republic of</option>
+                                                <option value="MG">Madagascar</option>
+                                                <option value="MW">Malawi</option>
+                                                <option value="MY">Malaysia</option>
+                                                <option value="MV">Maldives</option>
+                                                <option value="ML">Mali</option>
+                                                <option value="MT">Malta</option>
+                                                <option value="MH">Marshall Islands</option>
+                                                <option value="MQ">Martinique</option>
+                                                <option value="MR">Mauritania</option>
+                                                <option value="MU">Mauritius</option>
+                                                <option value="YT">Mayotte</option>
+                                                <option value="MX">Mexico</option>
+                                                <option value="FM">Micronesia, Federated States of</option>
+                                                <option value="MD">Moldova, Republic of</option>
+                                                <option value="MC">Monaco</option>
+                                                <option value="MN">Mongolia</option>
+                                                <option value="ME">Montenegro</option>
+                                                <option value="MS">Montserrat</option>
+                                                <option value="MA">Morocco</option>
+                                                <option value="MZ">Mozambique</option>
+                                                <option value="MM">Myanmar</option>
+                                                <option value="NA">Namibia</option>
+                                                <option value="NR">Nauru</option>
+                                                <option value="NP">Nepal</option>
+                                                <option value="NL">Netherlands</option>
+                                                <option value="AN">Netherlands Antilles</option>
+                                                <option value="NC">New Caledonia</option>
+                                                <option value="NZ">New Zealand</option>
+                                                <option value="NI">Nicaragua</option>
+                                                <option value="NE">Niger</option>
+                                                <option value="NG">Nigeria</option>
+                                                <option value="NU">Niue</option>
+                                                <option value="NF">Norfolk Island</option>
+                                                <option value="MP">Northern Mariana Islands</option>
+                                                <option value="NO">Norway</option>
+                                                <option value="OM">Oman</option>
+                                                <option value="PK">Pakistan</option>
+                                                <option value="PW">Palau</option>
+                                                <option value="PS">Palestinian Territory, Occupied</option>
+                                                <option value="PA">Panama</option>
+                                                <option value="PG">Papua New Guinea</option>
+                                                <option value="PY">Paraguay</option>
+                                                <option value="PE">Peru</option>
+                                                <option value="PH">Philippines</option>
+                                                <option value="PN">Pitcairn</option>
+                                                <option value="PL">Poland</option>
+                                                <option value="PT">Portugal</option>
+                                                <option value="PR">Puerto Rico</option>
+                                                <option value="QA">Qatar</option>
+                                                <option value="RE">R&eacute;union</option>
+                                                <option value="RO">Romania</option>
+                                                <option value="RU">Russian Federation</option>
+                                                <option value="RW">Rwanda</option>
+                                                <option value="BL">Saint Barth&eacute;lemy</option>
+                                                <option value="SH">Saint Helena, Ascension and Tristan da Cunha</option>
+                                                <option value="KN">Saint Kitts and Nevis</option>
+                                                <option value="LC">Saint Lucia</option>
+                                                <option value="MF">Saint Martin (French part)</option>
+                                                <option value="PM">Saint Pierre and Miquelon</option>
+                                                <option value="VC">Saint Vincent and the Grenadines</option>
+                                                <option value="WS">Samoa</option>
+                                                <option value="SM">San Marino</option>
+                                                <option value="ST">Sao Tome and Principe</option>
+                                                <option value="SA">Saudi Arabia</option>
+                                                <option value="SN">Senegal</option>
+                                                <option value="RS">Serbia</option>
+                                                <option value="SC">Seychelles</option>
+                                                <option value="SL">Sierra Leone</option>
+                                                <option value="SG">Singapore</option>
+                                                <option value="SK">Slovakia</option>
+                                                <option value="SI">Slovenia</option>
+                                                <option value="SB">Solomon Islands</option>
+                                                <option value="SO">Somalia</option>
+                                                <option value="ZA">South Africa</option>
+                                                <option value="GS">South Georgia and the South Sandwich Islands</option>
+                                                <option value="ES">Spain</option>
+                                                <option value="LK">Sri Lanka</option>
+                                                <option value="SD">Sudan</option>
+                                                <option value="SR">Suriname</option>
+                                                <option value="SJ">Svalbard and Jan Mayen</option>
+                                                <option value="SZ">Swaziland</option>
+                                                <option value="SE">Sweden</option>
+                                                <option value="CH">Switzerland</option>
+                                                <option value="SY">Syrian Arab Republic</option>
+                                                <option value="TW">Taiwan, Province of China</option>
+                                                <option value="TJ">Tajikistan</option>
+                                                <option value="TZ">Tanzania, United Republic of</option>
+                                                <option value="TH">Thailand</option>
+                                                <option value="TL">Timor-Leste</option>
+                                                <option value="TG">Togo</option>
+                                                <option value="TK">Tokelau</option>
+                                                <option value="TO">Tonga</option>
+                                                <option value="TT">Trinidad and Tobago</option>
+                                                <option value="TN">Tunisia</option>
+                                                <option value="TR">Turkey</option>
+                                                <option value="TM">Turkmenistan</option>
+                                                <option value="TC">Turks and Caicos Islands</option>
+                                                <option value="TV">Tuvalu</option>
+                                                <option value="UG">Uganda</option>
+                                                <option value="UA">Ukraine</option>
+                                                <option value="AE">United Arab Emirates</option>
+                                                <option value="GB">United Kingdom</option>
+                                                <option value="US">United States</option>
+                                                <option value="UM">United States Minor Outlying Islands</option>
+                                                <option value="UY">Uruguay</option>
+                                                <option value="UZ">Uzbekistan</option>
+                                                <option value="VU">Vanuatu</option>
+                                                <option value="VE">Venezuela, Bolivarian Republic of</option>
+                                                <option value="VN">Viet Nam</option>
+                                                <option value="VG">Virgin Islands, British</option>
+                                                <option value="VI">Virgin Islands, U.S.</option>
+                                                <option value="WF">Wallis and Futuna</option>
+                                                <option value="EH">Western Sahara</option>
+                                                <option value="YE">Yemen</option>
+                                                <option value="ZM">Zambia</option>
+                                                <option value="ZW">Zimbabwe</option>
+                                            </select>
+                                            <div *ngIf="Submitted && f['Country'].errors|| f['Country'].touched&& f['Country'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Country'].errors['required']">Country is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <select class="form-select" formControlName="State" id="State"
+                                                aria-label="Default select example"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['State'].errors || f['State'].touched&& f['State'].errors }">
+
+                                                <option value="" selected>Select State</option>
+                        <option value="Andra Pradesh">Andra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madya Pradesh">Madya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Orissa">Orissa</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttaranchal">Uttaranchal</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="West Bengal">West Bengal</option>
+                        <option disabled style="background-color:#aaa; color:#fff">UNION Territories</option>
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                        <option value="Daman and Diu">Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Lakshadeep">Lakshadeep</option>
+                        <option value="Pondicherry">Pondicherry</option>
+
+                                            </select>
+                                            <div *ngIf="Submitted && f['State'].errors|| f['State'].touched&& f['State'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['State'].errors['required']">State is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <select class="form-select" formControlName="City" id="gender"
+                                                aria-label="Default select example"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['City'].errors || f['City'].touched&& f['gender'].errors }">
+
+                                                <option value="">Select City</option>
+
+
+                                            </select>
+                                            <div *ngIf="Submitted && f['City'].errors|| f['City'].touched&& f['City'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['City'].errors['required']">City is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" class="form-control " id="Note" formControlName="Note"
+                                                placeholder="Note"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Note'].errors || f['Note'].touched&& f['Note'].errors }" />
+                                            <div *ngIf="Submitted && f['Note'].errors|| f['Note'].touched&& f['Note'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Note'].errors['required']">Note is required
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="email" class="form-control " id="name" formControlName="Email"
+                                                placeholder="Email"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Email'].errors || f['Email'].touched&& f['Email'].errors }" />
+                                            <div *ngIf="Submitted && f['Email'].errors|| f['Email'].touched&& f['Email'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Email'].errors['required']">Email is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="password" class="form-control " id="Password"
+                                                formControlName="Password" placeholder="Password"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['Password'].errors || f['Password'].touched&& f['Password'].errors }" />
+                                            <div *ngIf="Submitted && f['Password'].errors|| f['Password'].touched&& f['Password'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['Password'].errors['required']">Password is required
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" class="form-control " id="FatherName"
+                                                formControlName="FatherName" placeholder="Father Name"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['FatherName'].errors || f['FatherName'].touched&& f['FatherName'].errors }" />
+                                            <div *ngIf="Submitted && f['FatherName'].errors|| f['FatherName'].touched&& f['FatherName'].errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f['FatherName'].errors['required']">FatherName is required
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                   
+
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mx-1  ms-5 mb-3    mb-lg-4 ">
+                                <button style="width: 40%;" type="submit"
+                                    class="btn btn-primary mt-5 btn-lg ">Submit</button>
+                            </div>
+                            <div>
+                                <h4 class="d-flex justify-content-center mx-1  ms-5 mb-3 mt-5    mb-lg-4 ">Already have an account? <button routerLink="/login" style="border: none; background-color: white;" class="text-primary ">Login</button></h4>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
