@@ -8,14 +8,12 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
-
-
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-
+  
   
   ],
   imports: [
@@ -24,6 +22,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     BrowserAnimationsModule,
     NgSelectModule,
     FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
