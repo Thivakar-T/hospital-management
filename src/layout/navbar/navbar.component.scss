@@ -1,0 +1,27 @@
+@media (max-width:2560px) {
+    #logo {
+         margin-right: 150px;
+        }
+}
+
+@media (max-width:2560px) {
+    #brand { 
+        padding-left: 60px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    #brand {
+        padding-left: 20px;
+    }
+}
+.dropdown-menu{
+    width: 50px;
+    text-align: center;
+
+}
+@media (max-width: 575.98px) {
+#navbarDropdownMenuLink{
+    padding-top: 0px;
+}
+}

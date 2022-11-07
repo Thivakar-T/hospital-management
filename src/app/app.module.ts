@@ -8,14 +8,17 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
-
-
+import { NavbarComponent } from './../layout/navbar/navbar.component';
+import { FooterComponent } from './../layout/footer/footer.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatBadgeModule} from '@angular/material/badge';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
+    NavbarComponent,
+    FooterComponent,
   
   ],
   imports: [
@@ -27,6 +30,10 @@ import { NgxSpinnerModule } from "ngx-spinner";
     CommonModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
+    MatToolbarModule,
+    MatBadgeModule,
+    
+  
    
     ],
   providers: [],
