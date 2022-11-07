@@ -1,31 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+
 @Component({
-  selector: 'app-doctor',
-  templateUrl: './doctor.component.html',
-  styleUrls: ['./doctor.component.scss']
+  selector: 'app-patientform',
+  templateUrl: './patientform.component.html',
+  styleUrls: ['./patientform.component.scss']
 })
-export class DoctorComponent implements OnInit {
+export class PatientformComponent implements OnInit {
 
-  loginform!: FormGroup;
-  Submitted!: Boolean;
+  signupForm!: FormGroup;
+  Submitted!:Boolean;
+  
 
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router) { }
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.loginform = this.fb.group({
-      DoctorNo: ['', Validators.required],
-      PhoneNo: ['', Validators.required],
-      Qualification: ['', Validators.required],
+    this.signupForm = this.fb.group({
+      PatientNo: ['', Validators.required],
+      MobileNo: ['', Validators.required],
+      AlternativeNo: ['', Validators.required],
       Title: ['', Validators.required],
       fName: ['', Validators.required],
       lName: ['', Validators.required],
       Email: ['', Validators.required],
       Password: ['', Validators.required],
       FatherName: ['', Validators.required],
-      Designation: ['', Validators.required],
-      Specialist: ['', Validators.required],
+      MotherName: ['', Validators.required],
       SpouseName: ['', Validators.required],
       BloodGroup: ['', Validators.required],
       Weight: ['', Validators.required],
@@ -39,29 +40,20 @@ export class DoctorComponent implements OnInit {
       Note: ['', Validators.required],
       Age: ['', Validators.required],
       Marital: ['', Validators.required],
-      Certificate: ['', Validators.required],
-      Photo: ['', Validators.required],
+
     })
+    
   }
   get f() {
-    return this.loginform.controls
+    return this.signupForm.controls
   }
   submit() {
+    alert("Submitted Sucessfully")
     this.Submitted = true;
-
-    console.log(this.loginform.value)
+    
+    console.log(this.signupForm.value)
+    
 
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
