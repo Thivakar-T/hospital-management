@@ -8,6 +8,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
+
+
+
 import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 import { PatientformComponent } from './patientform/patientform.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -17,10 +20,12 @@ import { HttpClientModule } from '@angular/common/http';
 const ngWizardConfig: NgWizardConfig = {
   theme: THEME.default
 };
+
 import { NavbarComponent } from './../layout/navbar/navbar.component';
 import { FooterComponent } from './../layout/footer/footer.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBadgeModule} from '@angular/material/badge';
+
 
 
 @NgModule({
@@ -28,6 +33,13 @@ import {MatBadgeModule} from '@angular/material/badge';
     AppComponent,
     PatientformComponent,
     PatientlistComponent,
+
+  
+
+
+    PatientformComponent,
+    PatientlistComponent,
+
     NavbarComponent,
     FooterComponent,
   
@@ -38,12 +50,16 @@ import {MatBadgeModule} from '@angular/material/badge';
     BrowserAnimationsModule,
     NgSelectModule,
     FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     HttpClientModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
     NgWizardModule.forRoot(ngWizardConfig),
+
+    NgWizardModule.forRoot(ngWizardConfig),
+
     MatToolbarModule,
     MatBadgeModule,
     
