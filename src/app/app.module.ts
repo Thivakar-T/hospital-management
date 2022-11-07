@@ -8,9 +8,11 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
-
+import { PatientformComponent } from './patientform/patientform.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PatientlistComponent } from './patientlist/patientlist.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const ngWizardConfig: NgWizardConfig = {
   theme: THEME.default
@@ -19,7 +21,8 @@ const ngWizardConfig: NgWizardConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    PatientformComponent,
+    PatientlistComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,8 @@ const ngWizardConfig: NgWizardConfig = {
     NgSelectModule,
     FormsModule,
     CommonModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
     NgWizardModule.forRoot(ngWizardConfig)
