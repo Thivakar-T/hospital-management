@@ -15,11 +15,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-
 import { WorkersTableComponent } from './workers-table/workers-table.component';
 import { WorkersComponent } from './workers/workers.component';
-
-
 
 @NgModule({
   declarations: [
@@ -44,7 +41,7 @@ import { WorkersComponent } from './workers/workers.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class PagesModule { }

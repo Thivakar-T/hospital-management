@@ -36,7 +36,9 @@
               "node_modules/ng-wizard/themes/ng_wizard.min.css",
               "ng-wizard/themes/ng_wizard_theme_arrows.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/chart.js/dist/chart.js"
+            ]
           },
           "configurations": {
             "production": {

@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from "ngx-spinner";
-import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard';
 import { PatientformComponent } from './patientform/patientform.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PatientlistComponent } from './patientlist/patientlist.component';
@@ -17,11 +16,6 @@ import { NavbarComponent } from './../layout/navbar/navbar.component';
 import { FooterComponent } from './../layout/footer/footer.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBadgeModule} from '@angular/material/badge';
-
-
-const ngWizardConfig: NgWizardConfig = {
-  theme: THEME.default
-};
 
 @NgModule({
   declarations: [
@@ -45,7 +39,6 @@ const ngWizardConfig: NgWizardConfig = {
     MatBadgeModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
-    NgWizardModule.forRoot(ngWizardConfig)
     ],
   providers: [],
   bootstrap: [AppComponent]
