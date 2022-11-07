@@ -25,7 +25,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     CommonModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
-
+   
     ],
   providers: [],
   bootstrap: [AppComponent]
