@@ -9,14 +9,12 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { DoctorComponent } from './doctor/doctor.component';
-<<<<<<< HEAD
 import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
      DoctorComponent
-=======
 import { AdmissionListComponent } from './admission-list/admission-list.component';
 import { BedManagementComponent } from './bed-management/bed-management.component';
 import {MatButtonModule} from '@angular/material/button';
@@ -31,14 +29,11 @@ import {MatSelectModule} from '@angular/material/select';
     AdmissionListComponent,
     WorkersListComponent,
    
->>>>>>> 43fbf58bbd377cb567b1fdeb7234b4ce26fc5de9
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
-<<<<<<< HEAD
     ReactiveFormsModule
-=======
     MatPaginatorModule,
     MatIconModule,
     MatButtonModule,
@@ -50,7 +45,6 @@ import {MatSelectModule} from '@angular/material/select';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule
->>>>>>> 43fbf58bbd377cb567b1fdeb7234b4ce26fc5de9
   ]
 })
 export class PagesModule { }
