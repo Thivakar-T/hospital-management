@@ -12,8 +12,6 @@ import { NavbarComponent } from './../layout/navbar/navbar.component';
 import { FooterComponent } from './../layout/footer/footer.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBadgeModule} from '@angular/material/badge';
-import { BedManagementComponent } from './../app/pages/bed-management/bed-management.component';
-import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -21,7 +19,7 @@ import {MatButtonModule} from '@angular/material/button';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    BedManagementComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -34,7 +32,7 @@ import {MatButtonModule} from '@angular/material/button';
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
     MatToolbarModule,
     MatBadgeModule,
-    MatButtonModule
+    
   
     ],
   providers: [],

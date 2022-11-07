@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { AdmissionListComponent } from '../admission-list/admission-list.component';
 
 @Component({
   selector: 'app-bed-management',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BedManagementComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialog:MatDialog) { }
 
   ngOnInit(): void {
-  }
-
+    
+  };
+  openDialog(){
+    this.dialog.open(AdmissionListComponent, {
+      width: '30%',
+     
+    });
+}
 }
