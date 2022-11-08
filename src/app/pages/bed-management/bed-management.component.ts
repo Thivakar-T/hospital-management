@@ -16,8 +16,7 @@ export class BedManagementComponent implements OnInit {
   };
   openDialog(){
     this.dialog.open(AdmissionListComponent, {
-      width: '100%',
-     
+      width: '400px',
     });
 }
 }
