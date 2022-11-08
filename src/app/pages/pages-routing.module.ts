@@ -5,17 +5,17 @@ import { WorkersListComponent } from './workers-list/workers-list.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { WorkersTableComponent } from './workers-table/workers-table.component';
 import { BedManagementComponent } from './bed-management/bed-management.component';
-
+import { AdmissionListComponent } from './admission-list/admission-list.component';
 
 
 const routes: Routes = [
-  {path:"",component:WorkersComponent},
-  {path:"workers",component:WorkersComponent},
-  {path:"workers-list",component:WorkersListComponent},
-  {path:'doctor',component:DoctorComponent},
+  { path: "", component: WorkersComponent },
+  { path: "workers", component: WorkersComponent },
+  { path: "workers-list", component: WorkersListComponent },
+  { path: 'doctor', component: DoctorComponent },
   {path:"workers-table",component:WorkersTableComponent},
   {path:'bed-management',component:BedManagementComponent},
-  {path:'doctor',component:DoctorComponent}
+  {path:'admission-list',component:AdmissionListComponent}
 
 ];
 
