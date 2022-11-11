@@ -53,6 +53,9 @@ export class DoctorComponent implements OnInit {
     console.log(this.loginform.value)
 
   }
+  resetForm() {
+    this.loginform.reset();
+  }
 
 }
 
