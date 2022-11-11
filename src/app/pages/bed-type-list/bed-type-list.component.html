@@ -1,0 +1,104 @@
+<button type="button"  style="background-color: #f0c14b;" class="btn btn-lg mt-3 mx-2" data-bs-toggle="modal" data-bs-target="#BedModal">
+    Add Bed Management
+</button>
+
+<div class="modal" id="BedModal">
+    <div class="modal-dialog" >
+        <div class="modal-content">
+            <form class="bed-form" [formGroup]="signupForm">
+
+                <div class="modal-header">
+                    <p mat-dialog-title class="text-center fs-5 text-secodary"><b>Bed Management</b></p>
+                    <button type="reset" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-6 col-xl-6 order-2 order-lg-2">
+                            <div class="mt-3" mat-dialog-content>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>PatientNo</mat-label>
+                                    <input matInput placeholder="PatientNo" formControlName="PatientNo" type="number">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="mt-3">
+                                <mat-form-field appearance="outline">
+                                    <mat-select formControlName="Status" placeholder="Choose BedType">
+                                        <mat-option *ngFor="let list of status" [value]="list">{{list}}</mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="signupForm.get('Status')">
+                                        BedType Status is Required!
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="mt-3">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Admission Date</mat-label>
+                                    <input matInput placeholder="Admission Date" formControlName="Admission"
+                                        type="date">
+                                    <mat-error *ngIf="signupForm.get('Admission')">
+                                        Admission Date is Required!
+                                    </mat-error>
+
+                                </mat-form-field>
+                            </div>
+                            <div class="mt-3">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Discharge Date</mat-label>
+                                    <input matInput placeholder="Discharge Date" formControlName="Discharge"
+                                        type="date">
+                                    <mat-error *ngIf="signupForm.get('Discharge')">
+                                        Discharge Date is Required!
+                                    </mat-error>
+
+                                </mat-form-field>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 col-lg-6 col-xl-6 order-2 order-lg-2">
+                            <div class="mt-3">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Description</mat-label>
+                                    <input matInput placeholder="Description" formControlName="Description"
+                                        >
+                                    <mat-error *ngIf="signupForm.get('Description')">
+                                        Description is Required!
+                                    </mat-error>
+
+                                </mat-form-field>
+                            </div>
+                            <div class="mt-3">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Bed Status</mat-label>
+                                    <input matInput placeholder="Bed Status" formControlName="BedStatus">
+                                    <mat-error *ngIf="signupForm.get('BedStatus')">
+                                        Bed Status is Required!
+                                    </mat-error>
+
+                                </mat-form-field>
+                            </div>
+                            <div class="mt-3">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Cost</mat-label>
+                                    <input matInput placeholder="Cost" formControlName="Cost">
+                                    <mat-error *ngIf="signupForm.get('Cost')">
+                                        Cost is Required!
+                                    </mat-error>
+
+                                </mat-form-field>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary mt-4 mx-2" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary mt-4 mx-2" style="background-color: rgb(18,55,94);">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

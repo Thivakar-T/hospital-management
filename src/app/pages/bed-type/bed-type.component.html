@@ -1,0 +1,63 @@
+<button type="button" style="background-color: #f0c14b;" class="btn btn-lg mt-3 mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal"  >
+  Add Bed Type
+</button>
+
+
+
+<div class="modal fade" id="exampleModal">
+  <div class="modal-dialog" #exampleModal>
+    <div class="modal-content">
+      <form class="bed-form" [formGroup]="bedform">
+
+        <div class="modal-header">
+          <p mat-dialog-title class="text-center fs-5 text-secodary"><b>Bed Type</b></p>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+
+          <div class="mt-3" mat-dialog-content>
+            <mat-form-field appearance="outline">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Name" formControlName="firstName">
+              <mat-error *ngIf="bedform.get('firstName')">
+                Name is Required!
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="mt-3">
+            <mat-form-field appearance="outline">
+              <mat-label>Description</mat-label>
+              <input matInput placeholder="Description" formControlName="Description">
+              <mat-error *ngIf="bedform.get('Description')">
+                Description is Required!
+              </mat-error>
+
+            </mat-form-field>
+          </div>
+          <div class="mt-3">
+            <mat-form-field appearance="outline">
+              <mat-select  formControlName="Status" placeholder="Choose Status" >
+
+                <mat-option  *ngFor="let list of status"  [value]="list">{{list}}</mat-option>
+               
+
+              </mat-select>
+              <mat-error *ngIf="bedform.get('Status')">
+                Status is Required!
+              </mat-error>
+
+             
+   
+            </mat-form-field>
+          </div>
+
+        </div>
+        <div class="modal-footer mt-5">
+          <button type="reset" class="btn btn-secondary mt-4 mx-2" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary mt-4 mx-2"  style="background-color: rgb(18,55,94);">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

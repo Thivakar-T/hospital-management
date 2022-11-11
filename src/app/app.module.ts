@@ -16,6 +16,7 @@ import { NavbarComponent } from './../layout/navbar/navbar.component';
 import { FooterComponent } from './../layout/footer/footer.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBadgeModule} from '@angular/material/badge';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatBadgeModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
+    NgbModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

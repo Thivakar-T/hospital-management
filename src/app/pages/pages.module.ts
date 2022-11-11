@@ -8,8 +8,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { DoctorComponent } from './doctor/doctor.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { BedManagementComponent } from './bed-management/bed-management.component';
-import { AdmissionListComponent } from './admission-list/admission-list.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -17,6 +15,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { WorkersTableComponent } from './workers-table/workers-table.component';
 import { WorkersComponent } from './workers/workers.component';
+import { BedTypeComponent } from './bed-type/bed-type.component';
+import { BedTypeListComponent } from './bed-type-list/bed-type-list.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +24,10 @@ import { WorkersComponent } from './workers/workers.component';
     WorkersListComponent,
     WorkersTableComponent,
     WorkersComponent,
-    BedManagementComponent,
-    AdmissionListComponent,
     WorkersListComponent,
+    BedTypeComponent,
+    BedTypeListComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -42,6 +43,8 @@ import { WorkersComponent } from './workers/workers.component';
     MatInputModule,
     MatSelectModule,
     FormsModule,
-  ]
+  
+  ],
+  
 })
 export class PagesModule { }

@@ -1,8 +1,8 @@
-<section class="vh-300" style="background-color: #eee;">
+<section class="vh-300" style="background-color: rgb(255, 255, 255);">
     <div class="container-fluid h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-11">
-                <div class="card mt-4 text-black" style="border-radius: 25px;">
+                <div class="mt-4 text-black" style="border-radius: 25px;">
                     <div class="card-body p-md-5">
                         <div class="row justify-content-center">
                             <div class="col-md-10 col-lg-4 col-xl-4 order-2 order-lg-1">
@@ -323,10 +323,11 @@
                                         </div>
                                     </div>
 
-                                    <div class="d-flex justify-content-center  ms-5 mb-3 mb-lg-4">
-                                        <button type="submit"
-                                            class="btn btn-primary mt-4 btn-lg">Submit</button>
-                                    </div>
+                                    <button  type="reset"
+                                    class="btn ms-3 btn-danger" (click)="resetForm()">Reset</button>
+
+                                     <button type="submit" class="btn btn-primary ms-3">Submit</button>
+                                    
                                 </form>
                             </div>
                         </div>
@@ -336,5 +337,3 @@
         </div>
     </div>
 </section>
-
-
