@@ -1,33 +1,50 @@
-<nav class="navbar navbar-expand-lg navbar-dark py-3" id="brand" style="background-color:rgb(18, 55, 94)">
+<nav class="navbar navbar-expand-lg navbar-light text-light" style="background-color:rgb(18, 55, 94)">
   <div class="container-fluid">
-   <a class="navbar-brand"  href="#" id="logo">
-    <img src=".\..\assets\hos_logo-removebg-preview.png" alt="" width="30px" height="24px" opacity="1" class="d-inline-block align-text-top">
-   <span class="fw-bold ">ABC</span> 
-  </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <a class="navbar-brand"  href="#" id="logo">
+      <img src=".\..\assets\hos_logo-removebg-preview.png" alt="" width="30px" height="24px" opacity="1" class="d-inline-block align-text-top">
+     <span class="fw-bold  text-light">ABC</span> 
+    </a>
+  
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon "></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav" *ngFor="let list of list ;let i = index">
         <div class="navbar-nav fs-6">
           <a class="nav-link active text-white" aria-current="page" href="#" routerLink="list.link">{{list.label}}</a>
         </div>
-         <li class="nav-item dropdown" *ngIf="list.subItems">
+        <li class="nav-item dropdown " *ngIf="list.subItems">
           <a class="nav-link dropdown-toggle text-white p-0 fs-6 " href="#" id="navbarDropdownMenuLink" role="button"
             data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown link
           </a>
           <ul class="dropdown-menu">
-            <li *ngFor="let subList of subList;let i=index">
-              <a class="dropdown-item" href="#">{{subList.label}}</a>
+            <li> 
+              <a class="dropdown-item" href="#" routerLink="/patientlist">Manage Patients</a>
+              <a class="dropdown-item" href="#" routerLink="/patientform">Add Patients</a>
+              <a class="dropdown-item" href="#" routerLink="/workers-details">Manage Workers</a>
+              <a class="dropdown-item" href="#" routerLink="/pages/workers">Add Workers</a>
             </li>
           </ul>
         </li>
         
+
       </ul>
+      <div class="ms-auto">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Profile<i class="fa fa-user " aria-hidden="true"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><button class="dropdown-item" type="button">Action</button></li>
+            <li><button class="dropdown-item" type="button">Another action</button></li>
+            <li><button class="dropdown-item" type="button">Something else here</button></li>
+          </ul>
+       
     </div>
+    </div>
+   
+   
   </div>
 </nav>
-
-

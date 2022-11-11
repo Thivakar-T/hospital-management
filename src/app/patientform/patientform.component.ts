@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PatientService } from '../patient.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-patientform',
@@ -8,52 +10,91 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class PatientformComponent implements OnInit {
 
-  signupForm!: FormGroup;
+  patientform!: FormGroup;
   Submitted!:Boolean;
-  
+  paramId: any;
+  obj: any = {};
 
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+    private PatientService: PatientService,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.signupForm = this.fb.group({
-      PatientNo: ['', Validators.required],
-      MobileNo: ['', Validators.required],
+    this.patientform = this.fb.group({
+      patientNo: ['', Validators.required],
+      mobileNo: ['', Validators.required],
       AlternativeNo: ['', Validators.required],
-      Title: ['', Validators.required],
-      fName: ['', Validators.required],
+      title: ['', Validators.required],
+      firstName: ['', Validators.required],
       lName: ['', Validators.required],
-      Email: ['', Validators.required],
-      Password: ['', Validators.required],
-      FatherName: ['', Validators.required],
-      MotherName: ['', Validators.required],
-      SpouseName: ['', Validators.required],
-      BloodGroup: ['', Validators.required],
-      Weight: ['', Validators.required],
-      Adress1: ['', Validators.required],
-      Adress2: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      fatherName: ['', Validators.required],
+      motherName: ['', Validators.required],
+      spouseName: ['', Validators.required],
+      bloodgroup: ['', Validators.required],
+      weight: ['', Validators.required],
+      addressLine1: ['', Validators.required],
+      addressLine2: ['', Validators.required],
       gender: ['', Validators.required],
-      Portal: ['', Validators.required],
-      City: ['', Validators.required],
-      State: ['', Validators.required],
-      Country: ['', Validators.required],
-      Note: ['', Validators.required],
-      Age: ['', Validators.required],
-      Marital: ['', Validators.required],
+      postalCode: ['', Validators.required],
+      cityId: ['', Validators.required],
+      stateId: ['', Validators.required],
+      countryId: ['', Validators.required],
+      note: ['', Validators.required],
+      age: ['', Validators.required],
+      maritalStatus: ['', Validators.required],
 
     })
+    this.PatientService.getLogin().subscribe(
+      res => {
+        console.log(res)
+      })
+    this.paramId = this.route.snapshot.params['data'];
+    if (this.paramId) {
+      this.getId();
+    }
     
   }
   get f() {
-    return this.signupForm.controls
+    return this.patientform.controls
   }
   submit() {
     alert("Submitted Sucessfully")
     this.Submitted = true;
-    
-    console.log(this.signupForm.value)
-    
+    if (this.patientform.invalid) {
+      return;
+    }
+    console.log(this.patientform.value)
+    if (this.paramId) {
+      this.patientform.value.id = this.paramId
+      this.PatientService.updateLogin(this.patientform.value, this.paramId).subscribe(
+        res => {
+          alert("Edited sucessfully");
+          console.log(res)
+          this.router.navigate(['/patientlist']);
+        })
+    } else {
+      this.PatientService.login(this.patientform.value).subscribe(
+        res => {
+          console.log(res)
+          this.router.navigate(['/patientlist']);
+        })
+    }
 
+  }
+  getId() {
+    this.PatientService.getidData(this.paramId).subscribe(
+      res => {
+        console.log(res)
+        this.obj = res
+      })
+  }
+
+  resetForm() {
+    this.patientform.reset();
   }
 
 }

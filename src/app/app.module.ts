@@ -17,6 +17,8 @@ import { FooterComponent } from './../layout/footer/footer.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatBadgeModule} from '@angular/material/badge';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { WorkersDetailsComponent } from './workers-details/workers-details.component';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PatientlistComponent,
     NavbarComponent,
     FooterComponent,
+    WorkersDetailsComponent,
   ],
   imports: [
     BrowserModule,

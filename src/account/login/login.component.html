@@ -1,4 +1,4 @@
-<div class="  " id="login" >
+<div id="login" >
     <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-lg-12 col-xl-11">
             <div class="card text-black mt-5" style="border-radius: 25px;">
@@ -13,12 +13,12 @@
                                 <div class="d-flex flex-row align-items-center mb-4">
                                     <div class="form-outline flex-fill mb-0">
                                         <label class="form-label" for="form3Example1c">Phone number:</label>
-                                        <input type="number" class="form-control form-control-lg"
-                                            formControlName="pNumber"
-                                            [ngClass]="{ 'is-invalid': Submitted && f['pNumber'].errors || f['pNumber'].touched&& f['pNumber'].errors} " />
-                                        <div *ngIf="Submitted && f['pNumber'].errors|| f['pNumber'].touched&& f['pNumber'].errors"
+                                        <input type="text" class="form-control form-control-lg"
+                                            formControlName="userName"
+                                            [ngClass]="{ 'is-invalid': Submitted && f['userName'].errors || f['userName'].touched&& f['userName'].errors} " />
+                                        <div *ngIf="Submitted && f['userName'].errors|| f['userName'].touched&& f['userName'].errors"
                                             class="invalid-feedback">
-                                            <div *ngIf="f['pNumber'].errors['required']"> Number is required
+                                            <div *ngIf="f['userName'].errors['required']">Username is required
                                             </div>
                                         </div>
                                     </div>
