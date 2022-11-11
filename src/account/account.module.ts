@@ -5,6 +5,7 @@ import { AccountRoutingModule } from './account-routing.module';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { ConsultancyComponent } from './consultancy/consultancy.component';
 
 
 
@@ -12,7 +13,8 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     HomeComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    ConsultancyComponent
    
   ],
   imports: [
