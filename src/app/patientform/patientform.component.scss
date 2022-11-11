@@ -1,8 +1,15 @@
 @media only screen and (max-width: 600px) {
-    #hidden {
-      display: none;
-    }
-    #para{
-        text-align: center;
-    }
+  #hidden {
+    display: none;
   }
+}
+
+#para {
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px rgb(0, 0, 0);
+  font-family: fantasy;
+}
+#btn{
+  font-family: fantasy;
+  background-color: #f0c14b;
+}
