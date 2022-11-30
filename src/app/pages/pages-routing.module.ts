@@ -12,6 +12,7 @@ import { BedTypeListComponent } from './bed-type-list/bed-type-list.component';
 const routes: Routes = [
   { path: "", component: WorkersComponent },
   { path: "workers", component: WorkersComponent },
+  { path: "workers/:data", component: WorkersComponent },
   { path: "workers-list", component: WorkersListComponent },
   { path: 'doctor', component: DoctorComponent },
   { path: "workers-table", component: WorkersTableComponent },

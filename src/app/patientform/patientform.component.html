@@ -1,10 +1,10 @@
-<section class="vh-300" style="background-color: #eee;">
+<section class="vh-300" style="background-color: rgb(255, 255, 255);">
     <div class="container-fluid h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-lg-12 col-xl-11">
                 <div class=" mt-4 text-black">
-                    <!-- <div style="background-color:rgb(18,55,94);  border-radius: 25px 25px 0px 0px;">
-                        <div class="row  ">
+                    <!--<div style="background-color:rgb(18,55,94); border-radius: 25px 25px 0px 0px;">
+                        <div class="row">
                             <div class=" col-md-4 col-xl-4 col-lg-4" id="hidden">
                                 <img class="ms-5 " src="https://lu.edu.ph/wp-content/uploads/2021/05/Clinic-Logo.png"
                                     alt="" width="80px">
@@ -13,12 +13,13 @@
                             <div class="col-sm-3  col-md-4 col-xl-4  col-lg-4 mt-4">
                                 <h2 id="para" class="text-light text-center">ENTER DETAILS!</h2>
                             </div>
+
                             <div class="col-sm-3  col-md-4 col-xl-4  col-lg-4 text-center">
                                 <button id="btn" type="submit" routerLink="/patientlist"
                                     class="btn   mt-4 mb-3  text-dark  ">Manage Patient</button>
                             </div>
                         </div>
-                    </div> -->
+                    </div>-->
                     <form class="mx-1 mx-md-4" [formGroup]="patientform" (ngSubmit)="submit()">
                         <div class=" p-md-5">
                             <div class="row justify-content-center">
@@ -26,19 +27,30 @@
 
                                     <div class="d-flex flex-row align-items-center mb-4">
 
-                                        <div class="form-outline flex-fill mb-0">
-
+                                        <div class="form-floating flex-fill mb-0">
                                             <input type="number" class="form-control " id="PatientNo"
-                                                formControlName="patientNo" placeholder="Patient Number">
-
+                                                [(ngModel)]="patientobj.patientNo" formControlName="patientNo"
+                                                placeholder="Patient Number">
+                                            <label for="floatingInput">Patient Number</label>
                                         </div>
+                                        <!-- <div mat-dialog-content>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Patient Number </mat-label>
+                                            <input matInput placeholder="Patient Number" formControlName="patientNo">
+                                            <mat-error *ngIf="patientform.get('patientNo')">
+                                                Name is Required!
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div> -->
                                     </div>
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
+                                        <div class="form-floating flex-fill mb-0">
                                             <input type="number" class="form-control " id="mobileNo"
-                                                formControlName="mobileNo" placeholder="Mobile Number"
+                                                [(ngModel)]="patientobj.mobileNo" formControlName="mobileNo"
+                                                placeholder="Mobile Number"
                                                 [ngClass]="{ 'is-invalid': Submitted && f['mobileNo'].errors || f['mobileNo'].touched&& f['mobileNo'].errors }" />
+                                            <label for="floatingInput">Mobile Number</label>
                                             <div *ngIf="Submitted && f['mobileNo'].errors|| f['mobileNo'].touched&& f['mobileNo'].errors"
                                                 class="invalid-feedback">
                                                 <div *ngIf="f['mobileNo'].errors['required']">Mobile Number is required
@@ -46,12 +58,23 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <div mat-dialog-content>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Mobile Number </mat-label>
+                                            <input matInput placeholder="Mobile Number " formControlName="mobileNo">
+                                            <mat-error *ngIf="patientform.get('mobileNo')">
+                                                Mobile Number is Required!
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div> -->
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
+                                        <div class="form-floating flex-fill mb-0">
                                             <input type="text" class="form-control " id="name"
-                                                formControlName="spouseName" placeholder="Spouse Name"
+                                                [(ngModel)]="patientobj.spouseName" formControlName="spouseName"
+                                                placeholder="Spouse Name"
                                                 [ngClass]="{ 'is-invalid': Submitted && f['spouseName'].errors || f['spouseName'].touched&& f['spouseName'].errors }" />
+                                            <label for="floatingInput">Spouse Name</label>
                                             <div *ngIf="Submitted && f['spouseName'].errors|| f['spouseName'].touched&& f['spouseName'].errors"
                                                 class="invalid-feedback">
                                                 <div *ngIf="f['spouseName'].errors['required']">Spouse Name is required
@@ -59,39 +82,57 @@
                                             </div>
                                         </div>
                                     </div>
-
-
+                                    <!-- <div mat-dialog-content>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Spouse Name </mat-label>
+                                            <input matInput placeholder="Spouse Name " formControlName="spouseName">
+                                            <mat-error *ngIf="patientform.get('spouseName')">
+                                                Spouse Name is Required!
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div> -->
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
-                                            <select class="form-select" formControlName="bloodgroup" id="bloodgroup"
-                                                aria-label="Default select example"
-                                                [ngClass]="{ 'is-invalid': Submitted && f['bloodgroup'].errors || f['bloodgroup'].touched&& f['bloodgroup'].errors }">
-
-                                                <option value="">Choose BloodGroup</option>
-                                                <option value="A+"> (A+)</option>
-                                                <option value="A-"> (A-)</option>
-                                                <option value="B+"> (B+)</option>
-                                                <option value="B-"> (B-)</option>
-                                                <option value="O+"> (O+)</option>
-                                                <option value="O-"> (O-)</option>
-                                                <option value="AB+"> (AB+)</option>
-                                                <option value="AB-"> (AB-)</option>
+                                        <div class="form-floating flex-fill mb-0">
+                                            <select class="form-select" formControlName="bloodGroup" id="bloodGroup"
+                                                [(ngModel)]="patientobj.bloodGroup" aria-label="Default select example"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['bloodGroup'].errors || f['bloodGroup'].touched&& f['bloodGroup'].errors }">
+                                                <option value="">Choose bloodGroup</option>
+                                                <option value="A+">(A+)</option>
+                                                <option value="A-">(A-)</option>
+                                                <option value="B+">(B+)</option>
+                                                <option value="B-">(B-)</option>
+                                                <option value="O+">(O+)</option>
+                                                <option value="O-">(O-)</option>
+                                                <option value="AB+">(AB+)</option>
+                                                <option value="AB-">(AB-)</option>
 
                                             </select>
-                                            <div *ngIf="Submitted && f['bloodgroup'].errors|| f['bloodgroup'].touched&& f['bloodgroup'].errors"
+                                            <label for="floatingSelect">Blood Group</label>
+                                            <div *ngIf="Submitted && f['bloodGroup'].errors|| f['bloodGroup'].touched&& f['bloodGroup'].errors"
                                                 class="invalid-feedback">
-                                                <div *ngIf="f['bloodgroup'].errors['required']">Blood Group is required
+                                                <div *ngIf="f['bloodGroup'].errors['required']">Blood Group is required
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <mat-form-field appearance="outline">
+                                        <mat-label>Select BloodGroup</mat-label>
+                                        <mat-select formControlName="bloodGroup">
+                                            <mat-option *ngFor="let Bloodgroup of groups" [value]='Bloodgroup'>
+                                                {{Bloodgroup}}</mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="patientform.get('bloodGroup')">
+                                            Bloodgroup is Required!
+                                        </mat-error>
+                                    </mat-form-field> -->
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
+                                        <div class="form-floating flex-fill mb-0">
                                             <input type="number" class="form-control " id="age" formControlName="age"
-                                                placeholder="age"
+                                                [(ngModel)]="patientobj.age" placeholder="age"
                                                 [ngClass]="{ 'is-invalid': Submitted && f['age'].errors || f['age'].touched&& f['age'].errors }" />
+                                            <label for="floatingInput">Age</label>
                                             <div *ngIf="Submitted && f['age'].errors|| f['age'].touched&& f['age'].errors"
                                                 class="invalid-feedback">
                                                 <div *ngIf="f['age'].errors['required']">age is required
@@ -99,11 +140,20 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <div mat-dialog-content>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Age</mat-label>
+                                            <input matInput placeholder="Age " formControlName="age">
+                                            <mat-error *ngIf="patientform.get('age')">
+                                                Age is Required!
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div> -->
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
+                                        <div class="form-floating flex-fill mb-0">
                                             <select class="form-select" formControlName="gender" id="gender"
-                                                aria-label="Default select example"
+                                                [(ngModel)]="patientobj.gender" aria-label="Default select example"
                                                 [ngClass]="{ 'is-invalid': Submitted && f['gender'].errors || f['gender'].touched&& f['gender'].errors }">
 
                                                 <option value="">Choose gender</option>
@@ -111,6 +161,7 @@
                                                 <option value="male">Male</option>
 
                                             </select>
+                                            <label for="floatingSelect">Gender</label>
                                             <div *ngIf="Submitted && f['gender'].errors|| f['gender'].touched&& f['gender'].errors"
                                                 class="invalid-feedback">
                                                 <div *ngIf="f['gender'].errors['required']">Gender is required
@@ -118,29 +169,56 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <mat-form-field appearance="outline">
+                                        <mat-label>Select Gender</mat-label>
+                                        <mat-select formControlName="gender" >
+                                            <mat-option *ngFor="let Gender of gender" [value]='Gender'>{{Gender}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="patientform.get('gender')">
+                                            Gender is Required!
+                                        </mat-error>
+                                    </mat-form-field> -->
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
+                                        <div class="form-floating flex-fill mb-0">
                                             <select class="form-select" formControlName="countryId" id="countryId"
+                                                (change)="changeCountry($event)" [(ngModel)]="patientobj.countryId"
                                                 aria-label="Default select example"
                                                 [ngClass]="{ 'is-invalid': Submitted && f['countryId'].errors || f['countryId'].touched&& f['countryId'].errors }">
 
-                                                <option value="">Select CountryId</option>
+                                                <option value="">Select Country</option>
+                                                <option *ngFor="let list of country" [value]="list['id']">
+                                                    {{list['name']}}</option>
 
                                             </select>
+                                            <label for="floatingSelect">Country</label>
                                             <div *ngIf="Submitted && f['countryId'].errors|| f['countryId'].touched&& f['countryId'].errors"
                                                 class="invalid-feedback">
-                                                <div *ngIf="f['countryId'].errors['required']">countryId is required
+                                                <div *ngIf="f['countryId'].errors['required']">country is required
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <mat-form-field appearance="outline">
+                                        <mat-label>Select Country</mat-label>
+                                        <mat-select formControlName="countryId" (change)="changeCountry($event)">
+                                            <mat-option *ngFor="let list of country" [value]="list['id']">
+                                                {{list['name']}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="patientform.get('countryId')">
+                                            Country is Required!
+                                        </mat-error>
+                                    </mat-form-field> -->
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
+                                        <div class="form-floating flex-fill mb-0">
                                             <input type="number" class="form-control " id="name"
-                                                formControlName="postalCode" placeholder="postal code"
+                                                [(ngModel)]="patientobj.postalCode" formControlName="postalCode"
+                                                placeholder="postal code"
                                                 [ngClass]="{ 'is-invalid': Submitted && f['postalCode'].errors || f['postalCode'].touched&& f['postalCode'].errors }" />
+                                            <label for="floatingInput">Postal Code</label>
                                             <div *ngIf="Submitted && f['postalCode'].errors|| f['postalCode'].touched&& f['postalCode'].errors"
                                                 class="invalid-feedback">
                                                 <div *ngIf="f['postalCode'].errors['required']">postal code is required
@@ -148,6 +226,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <div mat-dialog-content>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>postal code</mat-label>
+                                            <input matInput placeholder="postal code " formControlName="postalCode">
+                                            <mat-error *ngIf="patientform.get('postalCode')">
+                                                postal code is Required!
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div> -->
 
                                 </div>
 
@@ -157,10 +244,12 @@
 
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input type="text" class="form-control " id="name" formControlName="firstName"
+                                        <div class="form-floating flex-fill mb-0">
+                                            <input type="text" class="form-control " id="name"
+                                                [(ngModel)]="patientobj.firstName" formControlName="firstName"
                                                 placeholder="First Name"
                                                 [ngClass]="{ 'is-invalid': Submitted && f['firstName'].errors || f['firstName'].touched&& f['firstName'].errors }" />
+                                            <label for="floatingInput">First Name</label>
                                             <div *ngIf="Submitted && f['firstName'].errors|| f['firstName'].touched&& f['firstName'].errors"
                                                 class="invalid-feedback">
                                                 <div *ngIf="f['firstName'].errors['required']">First Name is required
@@ -168,26 +257,50 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <div mat-dialog-content>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>First Name</mat-label>
+                                            <input matInput placeholder="First Name " formControlName="firstName">
+                                            <mat-error *ngIf="patientform.get('firstName')">
+                                                First Name is Required!
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div> -->
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input type="number" class="form-control " id="AlternativeNo"
-                                                formControlName="AlternativeNo" placeholder="Alternative Mobile Number"
-                                                [ngClass]="{ 'is-invalid': Submitted && f['AlternativeNo'].errors || f['AlternativeNo'].touched&& f['AlternativeNo'].errors }" />
-                                            <div *ngIf="Submitted && f['AlternativeNo'].errors|| f['AlternativeNo'].touched&& f['AlternativeNo'].errors"
+                                        <div class="form-floating flex-fill mb-0">
+                                            <input type="number" class="form-control " id="alternativeMobileNo"
+                                                [(ngModel)]="patientobj.alternativeMobileNo"
+                                                formControlName="alternativeMobileNo"
+                                                placeholder="Alternative Mobile Number"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['alternativeMobileNo'].errors || f['alternativeMobileNo'].touched&& f['alternativeMobileNo'].errors }" />
+                                            <label for="floatingInput">Alternate Number</label>
+                                            <div *ngIf="Submitted && f['alternativeMobileNo'].errors|| f['alternativeMobileNo'].touched&& f['alternativeMobileNo'].errors"
                                                 class="invalid-feedback">
-                                                <div *ngIf="f['AlternativeNo'].errors['required']">Alternative Mobile
+                                                <div *ngIf="f['alternativeMobileNo'].errors['required']">Alternative
+                                                    Mobile
                                                     Number is required
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <div mat-dialog-content>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Alternative Mobile Number</mat-label>
+                                            <input type="number" matInput placeholder="Alternative Mobile Number" formControlName="alternativeMobileNo">
+                                            <mat-error *ngIf="patientform.get('alternativeMobileNo')">
+                                                Alternative Mobile Number is Required!
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div> -->
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
+                                        <div class="form-floating flex-fill mb-0">
                                             <input type="text" class="form-control " id="fatherName"
-                                                formControlName="fatherName" placeholder="Father Name"
+                                                [(ngModel)]="patientobj.fatherName" formControlName="fatherName"
+                                                placeholder="Father Name"
                                                 [ngClass]="{ 'is-invalid': Submitted && f['fatherName'].errors || f['fatherName'].touched&& f['fatherName'].errors }" />
+                                            <label for="floatingInput">Father Name</label>
                                             <div *ngIf="Submitted && f['fatherName'].errors|| f['fatherName'].touched&& f['fatherName'].errors"
                                                 class="invalid-feedback">
                                                 <div *ngIf="f['fatherName'].errors['required']">FatherName is required
@@ -196,12 +309,23 @@
 
                                         </div>
                                     </div>
+                                    <!-- <div mat-dialog-content>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Father Name</mat-label>
+                                            <input matInput placeholder="Father Name" formControlName="fatherName">
+                                            <mat-error *ngIf="patientform.get('fatherName')">
+                                                Father Name is Required!
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div> -->
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
+                                        <div class="form-floating flex-fill mb-0">
                                             <input type="number" class="form-control " id="weight"
-                                                formControlName="weight" placeholder="weight"
+                                                [(ngModel)]="patientobj.weight" formControlName="weight"
+                                                placeholder="weight"
                                                 [ngClass]="{ 'is-invalid': Submitted && f['weight'].errors || f['weight'].touched&& f['weight'].errors }" />
+                                            <label for="floatingInput">Weight</label>
                                             <div *ngIf="Submitted && f['weight'].errors|| f['weight'].touched&& f['weight'].errors"
                                                 class="invalid-feedback">
                                                 <div *ngIf="f['weight'].errors['required']">Weight is required
@@ -209,12 +333,22 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <div mat-dialog-content>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>weight</mat-label>
+                                            <input matInput placeholder="weight" formControlName="weight">
+                                            <mat-error *ngIf="patientform.get('weight')">
+                                                weight is Required!
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div> -->
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
+                                        <div class="form-floating flex-fill mb-0">
                                             <input type="email" class="form-control " id="name" formControlName="email"
-                                                placeholder="email"
+                                                [(ngModel)]="patientobj.email" placeholder="email"
                                                 [ngClass]="{ 'is-invalid': Submitted && f['email'].errors || f['email'].touched&& f['email'].errors }" />
+                                            <label for="floatingInput">Email</label>
                                             <div *ngIf="Submitted && f['email'].errors|| f['email'].touched&& f['email'].errors"
                                                 class="invalid-feedback">
                                                 <div *ngIf="f['email'].errors['required']">Email is required
@@ -222,78 +356,140 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <div mat-dialog-content>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Email</mat-label>
+                                            <input matInput placeholder="Email" formControlName="email">
+                                            <mat-error *ngIf="patientform.get('email')">
+                                                Email is Required!
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div> -->
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
+                                        <div class="form-floating flex-fill mb-0">
                                             <input type="text" class="form-control " id="addressLine1"
-                                                formControlName="addressLine1" placeholder="Adress "
+                                                [(ngModel)]="patientobj.addressLine1" formControlName="addressLine1"
+                                                placeholder="Address "
                                                 [ngClass]="{ 'is-invalid': Submitted && f['addressLine1'].errors || f['addressLine1'].touched&& f['addressLine1'].errors }" />
+                                            <label for="floatingInput">Address</label>
                                             <div *ngIf="Submitted && f['addressLine1'].errors|| f['addressLine1'].touched&& f['addressLine1'].errors"
                                                 class="invalid-feedback">
-                                                <div *ngIf="f['addressLine1'].errors['required']">Adress line1 is required
+                                                <div *ngIf="f['addressLine1'].errors['required']">Address line1 is
+                                                    required
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <div mat-dialog-content>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Address</mat-label>
+                                            <input matInput placeholder="Address" formControlName="addressLine1">
+                                            <mat-error *ngIf="patientform.get('addressLine1')">
+                                                Address is Required!
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div> -->
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
+                                        <div class="form-floating flex-fill mb-0">
                                             <select class="form-select" formControlName="stateId" id="stateId"
+                                                (change)="changeState($event)" [(ngModel)]="patientobj.stateId"
                                                 aria-label="Default select example"
                                                 [ngClass]="{ 'is-invalid': Submitted && f['stateId'].errors || f['stateId'].touched&& f['stateId'].errors }">
 
-                                                <option value="">Select stateId</option>
+                                                <option value="">Select state</option>
+                                                <option *ngFor="let list of state" [value]="list['id']">{{list['name']}}
+                                                </option>
 
                                             </select>
+                                            <label for="floatingSelect">State</label>
                                             <div *ngIf="Submitted && f['stateId'].errors|| f['stateId'].touched&& f['stateId'].errors"
                                                 class="invalid-feedback">
-                                                <div *ngIf="f['stateId'].errors['required']">StateId is required
+                                                <div *ngIf="f['stateId'].errors['required']">State is required
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <mat-form-field appearance="outline">
+                                        <mat-label>Select State</mat-label>
+                                        <mat-select formControlName="stateId" (change)="changeState($event)">
+                                            <mat-option *ngFor="let list of state" [value]="list['id']">
+                                                {{list['name']}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="patientform.get('stateId')">
+                                            State is Required!
+                                        </mat-error>
+                                    </mat-form-field> -->
                                 </div>
 
                                 <div class="col-md-10 col-lg-4 col-xl-4 order-2 order-lg-1">
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input type="text" class="form-control " id="name" formControlName="lName"
+                                        <div class="form-floating flex-fill mb-0">
+                                            <input type="text" class="form-control " id="name"
+                                                formControlName="lastName" [(ngModel)]="patientobj.lastName"
                                                 placeholder="Last Name"
-                                                [ngClass]="{ 'is-invalid': Submitted && f['lName'].errors || f['lName'].touched&& f['lName'].errors }" />
-                                            <div *ngIf="Submitted && f['lName'].errors|| f['lName'].touched&& f['lName'].errors"
+                                                [ngClass]="{ 'is-invalid': Submitted && f['lastName'].errors || f['lastName'].touched&& f['lastName'].errors }" />
+                                            <label for="floatingInput">Last Name</label>
+                                            <div *ngIf="Submitted && f['lastName'].errors|| f['lastName'].touched&& f['lastName'].errors"
                                                 class="invalid-feedback">
-                                                <div *ngIf="f['lName'].errors['required']">Last Name is required
+                                                <div *ngIf="f['lastName'].errors['required']">Last Name is required
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <div mat-dialog-content>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>lastName</mat-label>
+                                            <input matInput placeholder="Address" formControlName="lastName">
+                                            <mat-error *ngIf="patientform.get('lastName')">
+                                                lastName is Required!
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div> -->
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
-                                            <select class="form-select" formControlName="maritalStatus" id="maritalStatus"
+                                        <div class="form-floating flex-fill mb-0">
+                                            <select class="form-select" formControlName="maritalStatus"
+                                                [(ngModel)]="patientobj.maritalStatus" id="maritalStatus"
                                                 aria-label="Default select example"
                                                 [ngClass]="{ 'is-invalid': Submitted && f['maritalStatus'].errors || f['maritalStatus'].touched&& f['maritalStatus'].errors }">
 
                                                 <option value="">Choose maritalStatus</option>
-                                                <option value="female">Married</option>
-                                                <option value="male">Single</option>
+                                                <option value="MARRIED">Married</option>
+                                                <option value="SINGLE">Single</option>
 
                                             </select>
+                                            <label for="floatingSelect">Marital Status</label>
                                             <div *ngIf="Submitted && f['maritalStatus'].errors|| f['maritalStatus'].touched&& f['maritalStatus'].errors"
                                                 class="invalid-feedback">
-                                                <div *ngIf="f['maritalStatus'].errors['required']">Marital Status is required
+                                                <div *ngIf="f['maritalStatus'].errors['required']">marital Status is
+                                                    required
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <mat-form-field appearance="outline">
+                                        <mat-label>Select MaritalStatus</mat-label>
+                                        <mat-select formControlName="maritalStatus" >
+                                            <mat-option *ngFor="let Marital of maritalstatus" [value]='Marital'>{{Marital}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="patientform.get('maritalStatus')">
+                                            MaritalStatus is Required!
+                                        </mat-error>
+                                    </mat-form-field> -->
 
 
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
+                                        <div class="form-floating flex-fill mb-0">
                                             <input type="text" class="form-control " id="name"
-                                                formControlName="motherName" placeholder="Mother Name"
+                                                [(ngModel)]="patientobj.motherName" formControlName="motherName"
+                                                placeholder="Mother Name"
                                                 [ngClass]="{ 'is-invalid': Submitted && f['motherName'].errors || f['motherName'].touched&& f['motherName'].errors }" />
+                                            <label for="floatingInput">Mother Name</label>
                                             <div *ngIf="Submitted && f['motherName'].errors|| f['motherName'].touched&& f['motherName'].errors"
                                                 class="invalid-feedback">
                                                 <div *ngIf="f['motherName'].errors['required']">Mother Name is required
@@ -301,18 +497,28 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <div mat-dialog-content>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Mother Name</mat-label>
+                                            <input matInput placeholder="Address" formControlName="motherName">
+                                            <mat-error *ngIf="patientform.get('motherName')">
+                                                Mother Name is Required!
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div> -->
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
+                                        <div class="form-floating flex-fill mb-0">
                                             <select class="form-select" formControlName="title" id="title"
-                                                aria-label="Default select example"
+                                                [(ngModel)]="patientobj.title" aria-label="Default select example"
                                                 [ngClass]="{ 'is-invalid': Submitted && f['title'].errors || f['title'].touched&& f['title'].errors }">
 
                                                 <option value="">Choose Title</option>
-                                                <option value="female">Mr</option>
-                                                <option value="male">Mrs</option>
+                                                <option value="Mr">Mr</option>
+                                                <option value="Mrs">Mrs</option>
 
                                             </select>
+                                            <label for="floatingSelect">Title</label>
                                             <div *ngIf="Submitted && f['title'].errors|| f['title'].touched&& f['title'].errors"
                                                 class="invalid-feedback">
                                                 <div *ngIf="f['title'].errors['required']">Title is required
@@ -320,12 +526,24 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <mat-form-field appearance="outline">
+                                        <mat-label>Select Title</mat-label>
+                                        <mat-select formControlName="title" >
+                                            <mat-option *ngFor="let Title of title" [value]='Title'>{{Title}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="patientform.get('title')">
+                                            Title is Required!
+                                        </mat-error>
+                                    </mat-form-field> -->
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
+                                        <div class="form-floating flex-fill mb-0">
                                             <input type="password" class="form-control " id="password"
-                                                formControlName="password" placeholder="password"
+                                                [(ngModel)]="patientobj.password" formControlName="password"
+                                                placeholder="password"
                                                 [ngClass]="{ 'is-invalid': Submitted && f['password'].errors || f['password'].touched&& f['password'].errors }" />
+                                            <label for="floatingInput">Password</label>
                                             <div *ngIf="Submitted && f['password'].errors|| f['password'].touched&& f['password'].errors"
                                                 class="invalid-feedback">
                                                 <div *ngIf="f['password'].errors['required']">Password is required
@@ -333,30 +551,54 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <div mat-dialog-content>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Password</mat-label>
+                                            <input matInput placeholder="Address" formControlName="password">
+                                            <mat-error *ngIf="patientform.get('password')">
+                                                Password is Required!
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div> -->
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
-                                            <input type="text" class="form-control " id="name" formControlName="addressLine2"
+                                        <div class="form-floating flex-fill mb-0">
+                                            <input type="text" class="form-control " id="name"
+                                                [(ngModel)]="patientobj.addressLine2" formControlName="addressLine2"
                                                 placeholder="Adress "
                                                 [ngClass]="{ 'is-invalid': Submitted && f['addressLine2'].errors || f['addressLine2'].touched&& f['addressLine2'].errors }" />
+                                            <label for="floatingInput">Address</label>
                                             <div *ngIf="Submitted && f['addressLine2'].errors|| f['addressLine2'].touched&& f['addressLine2'].errors"
                                                 class="invalid-feedback">
-                                                <div *ngIf="f['addressLine2'].errors['required']">Adress line2 is required
+                                                <div *ngIf="f['addressLine2'].errors['required']">Address line2 is
+                                                    required
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <div mat-dialog-content>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Address</mat-label>
+                                            <input matInput placeholder="Address" formControlName="addressLine2">
+                                            <mat-error *ngIf="patientform.get('addressLine2')">
+                                                Address is Required!
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div> -->
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
+                                        <div class="form-floating flex-fill mb-0">
                                             <select class="form-select" formControlName="cityId" id="cityId"
-                                                aria-label="Default select example"
+                                                [(ngModel)]="patientobj.cityId" aria-label="Default select example"
                                                 [ngClass]="{ 'is-invalid': Submitted && f['cityId'].errors || f['cityId'].touched&& f['cityId'].errors }">
 
-                                                <option value="">Select cityId</option>
+                                                <option value="">Select City</option>
+                                                <option *ngFor="let list of city" [value]="list['id']">{{list['name']}}
+                                                </option>
 
 
                                             </select>
+                                            <label for="floatingSelect">City</label>
                                             <div *ngIf="Submitted && f['cityId'].errors|| f['cityId'].touched&& f['cityId'].errors"
                                                 class="invalid-feedback">
                                                 <div *ngIf="f['cityId'].errors['required']">cityId is required
@@ -364,12 +606,24 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <mat-form-field appearance="outline">
+                                        <mat-label>Select City</mat-label>
+                                        <mat-select formControlName="cityId" >
+                                            <mat-option *ngFor="let list of city" [value]="list['id']">
+                                                {{list['name']}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="patientform.get('cityId')">
+                                            City is Required!
+                                        </mat-error>
+                                    </mat-form-field> -->
 
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <div class="form-outline flex-fill mb-0">
+                                        <div class="form-floating flex-fill mb-0">
                                             <input type="text" class="form-control " id="note" formControlName="note"
-                                                placeholder="note"
+                                                [(ngModel)]="patientobj.note" placeholder="note"
                                                 [ngClass]="{ 'is-invalid': Submitted && f['note'].errors || f['note'].touched&& f['note'].errors }" />
+                                            <label for="floatingInput">Note</label>
                                             <div *ngIf="Submitted && f['note'].errors|| f['note'].touched&& f['note'].errors"
                                                 class="invalid-feedback">
                                                 <div *ngIf="f['note'].errors['required']">Note is required
@@ -378,6 +632,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- <div mat-dialog-content>
+                                        <mat-form-field appearance="outline">
+                                            <mat-label>Note</mat-label>
+                                            <input matInput placeholder="Address" formControlName="note">
+                                            <mat-error *ngIf="patientform.get('note')">
+                                                Note is Required!
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div> -->
 
                                 </div>
 

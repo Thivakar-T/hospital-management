@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router ,ActivatedRoute,Route} from '@angular/router'; 
+import { Router, ActivatedRoute, Route } from '@angular/router';
 import { PatientService } from '../patient.service';
+import { AddressService } from '../address.service';
 
 @Component({
   selector: 'app-patientlist',
@@ -9,29 +10,48 @@ import { PatientService } from '../patient.service';
 })
 export class PatientlistComponent implements OnInit {
 
-  product:any
-  array!:[];
+  product: any;
+  paramid: any;
+  obj: any = [];
+  result: any;
+  patientobj: any = [];
+
   constructor(
-    private router:Router,
-    private activatedroute:ActivatedRoute,
-    private service:PatientService
+    private router: Router,
+    private activatedroute: ActivatedRoute,
+    private service: PatientService,
+    private addressService: AddressService
+
   ) { }
 
   ngOnInit(): void {
-    this.get()
+    this.getCountry()
+    this.getpatienttype()
   }
-  get(){
-    this.service.getLogin().subscribe(
+  getCountry() {
+    this.addressService.getCountry().subscribe(
       res => {
         console.log(res)
-        this.product=res
+        this.product = res
       })
   }
-  reject(id:any){
-    this.service.deleteData(id).subscribe(
-      res => {
-        this.get()
-      })
+  
+  
+  getpatienttype() {
+    this.service.getbypatientlist().subscribe((res) => {
+      console.log(res)
+      this.obj = res
+      this.obj = this.obj.data
+      console.log(this.obj);
+    })
+  }
+  reject(id: any) {
+    this.service.deletepatient(id).subscribe((res) => {
+      console.log(res)
+      this.getpatienttype();
+      this.result = res;
+    })
+
   }
 
 }

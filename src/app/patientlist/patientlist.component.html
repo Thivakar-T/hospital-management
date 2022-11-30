@@ -1,33 +1,34 @@
-<section class="intro h-100">
-    <div class="bg-image h-100" style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/tables/img2.jpg');">
-      <div class="mask d-flex align-items-center h-100"  style="background-color: rgba(0,0,0,.25);">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-12">
-              <div class="card bg-dark shadow-2-strong">
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table table-secondary table-borderless mb-0">
-                      <thead>
-                        <tr>
-                          <th scope="col">EMPLOYEES</th>
-                          <th scope="col">POSITION</th>
-                          <th scope="col">CONTACTS</th>
-                          <th scope="col">AGE</th>
-                          <th scope="col">ADDRESS</th>
-                          <th scope="col">SALARY</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+
+
+<div class="container mt-5">
+  <table class=" table table-hover table-responsive-sm">
+    <thead>
+      <tr>
+        <th scope="col">S. No</th>
+        <th scope="col">Patient No</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Mobile Number</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of obj ;let i = index">
+        <td>{{i+1}}</td>
+        <td>{{list.patientNo}}</td>
+        <td>{{list.firstName}}</td>
+       <td>{{list.age}}</td>
+       <td>{{list.gender}}</td>
+       <td>{{list.mobileNo}}</td>
+       <td>{{list.status}}</td>
+        <td>
+          <button type="button"  class="btn btn-primary btn-sm mx-2 my-1"><a routerLink='/patientform/{{list.id}}' class="text-decoration-none text-light"><i
+                class='bx bx-edit-alt'></i></a></button>
+          <button type="button"  (click)="reject(list.id)" class="btn btn-danger btn-sm mx-2 my-1"><i class='bx bx-message-square-x'></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

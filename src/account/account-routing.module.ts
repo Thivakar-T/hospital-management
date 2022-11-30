@@ -8,10 +8,10 @@ import { ConsultancyComponent } from './consultancy/consultancy.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
+  {path:'home',component:HomeComponent},
   {path:'signup',component:SignupComponent},
   {path:'login',component:LoginComponent},
   {path:'consultancy',component:ConsultancyComponent}
-  
 ];
 
 @NgModule({

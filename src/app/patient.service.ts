@@ -1,27 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
 @Injectable({
   providedIn: 'root'
 })
 export class PatientService {
 
-  private baseUrl=''
-  constructor(
-    private http:HttpClient
-  ) { }
-  login(data:any){
-    return this.http.post<any>(this.baseUrl, data);
+  private baseUrl = environment.API_URL
+  private patientpost = this.baseUrl + '/api/patient/createPatient'
+  private getbypatient = this.baseUrl + '/api/patient/getAllPatients'
+  private rejectpatient = this.baseUrl + '/api/patient/deletePatients'
+  private updatepatient = this.baseUrl + '/api/patient/updatePatients'
+  private editpatient = this.baseUrl + '/api/patient/getById'
+  constructor(private http: HttpClient) { }
+
+  public getbypatientlist() {
+    return this.http.get(this.getbypatient)
   }
-  getLogin(){
-    return this.http.get<any>(this.baseUrl);
+  public createpatient(data: any) {
+    return this.http.post<any>(this.patientpost, data)
   }
-  updateLogin(data:any,id:any) {
-    return this.http.put<any>(this.baseUrl+ '/' + id, data);
+  deletepatient(id: any) {
+    return this.http.put<any>(this.rejectpatient + '/' + id, id)
   }
-  public getidData(id: any) {
-    return this.http.get<any>(this.baseUrl + '/' + id);
+  editpatientid(id: any) {
+    return this.http.get<any>(this.editpatient + '/' + id)
   }
-  deleteData(id: any) {
-    return this.http.delete<any>(this.baseUrl + '/' + id);
+  updatepatientid(workersform: any) {
+    return this.http.put<any>(this.updatepatient, workersform)
   }
-}
+} 

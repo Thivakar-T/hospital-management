@@ -1,23 +1,23 @@
 import { MenuItem } from "./menu.module";
 export const MENU: MenuItem[] = [
-    {
-        id: 1,
-        label: 'Dashboard',
-        link: '/dashboard',
-    },
-    {
-        id: 2,
-        label: 'Home',
-        link: '/dashboard',
-    }, {
-        id: 3,
-        label: 'Contact',
-        link: '/dashboard',
-    }, {
-        id: 4,
-        label: 'About',
-        link: '/dashboard',
-    },
+    // {
+    //     id: 1,
+    //     label: 'Dashboard',
+    //     link: '/home',
+    // },
+    // {
+    //     id: 2,
+    //     label: 'Home',
+    //     link: '',
+    // }, {
+    //     id: 3,
+    //     label: 'Contact',
+    //     link: '',
+    // }, {
+    //     id: 4,
+    //     label: 'About',
+    //     link: '/about',
+    // },
     { subItems: [
             {
                 id: 5,

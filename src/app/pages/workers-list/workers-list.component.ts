@@ -4,12 +4,12 @@ import {MatTableDataSource} from '@angular/material/table';
 import { Router ,ActivatedRoute,Route} from '@angular/router'; 
 
 
+
 export interface PeriodicElement {
   name: string;
   position: number;
   weight: number;
   symbol: string;
-  
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
@@ -60,7 +60,4 @@ export class WorkersListComponent implements AfterViewInit{
     const filterValue=(event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  
-  
-
 }

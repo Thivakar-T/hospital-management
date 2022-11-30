@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { WorkersService } from './../../workers.service';
-
+import { AddressService } from 'src/app/address.service';
 
 @Component({
   selector: 'app-workers',
@@ -11,12 +11,22 @@ import { WorkersService } from './../../workers.service';
 })
 export class WorkersComponent implements OnInit {
   workersform!: FormGroup;
-  Submitted!:Boolean;
+  Submitted!: Boolean;
   paramId: any;
   obj: any = {};
+  countryObj: any = {};
+  stateObj: any = {};
+  cityObj: any = {};
+  country = [];
+  state = [];
+  city = [];
+  stateId: any;
+  cityId: any;
+  workobj: any = [];
 
   constructor(private fb: FormBuilder,
-    private PatientService: WorkersService,
+    private workerservice: WorkersService,
+    private addressservice: AddressService,
     private route: ActivatedRoute,
     private router: Router) { }
 
@@ -40,18 +50,53 @@ export class WorkersComponent implements OnInit {
       qualification: ['', Validators.required],
       cityId: ['', Validators.required],
     })
-    this.PatientService.getLogin().subscribe(
-      res => {
-        console.log(res)
-      })
+    this.getCountry();
+    // this.getcity();
+    // this.getstate();
+    this.getworkertype();
     this.paramId = this.route.snapshot.params['data'];
     if (this.paramId) {
-      this.getId();
+      this.workeredit(this.paramId)
     }
   }
 
   get f() {
     return this.workersform.controls
+  }
+  getCountry() {
+    this.addressservice.getCountry().subscribe(
+      res => {
+        console.log(res)
+        this.countryObj = res;
+        console.log(this.countryObj)
+        this.country = this.countryObj.data;
+        console.log(this.country)
+      })
+  }
+  workeredit(id: any) {
+    console.log(id);
+    this.workerservice.editworkerid(id).subscribe((res) => {
+      this.workobj = res.data;
+    });
+
+
+
+  }
+  getcity(id: any) {
+    this.addressservice.getcityId(id).subscribe(
+      res => {
+        console.log(res)
+        this.cityObj = res
+        this.city = this.cityObj.data
+      })
+  }
+  getstate(id: any) {
+    this.addressservice.getstateId(id).subscribe(
+      res => {
+        console.log(res)
+        this.stateObj = res
+        this.state = this.stateObj.data
+      })
   }
   submit() {
     alert("Submitted Sucessfully")
@@ -60,33 +105,33 @@ export class WorkersComponent implements OnInit {
       return;
     }
     console.log(this.workersform.value)
-    if (this.paramId) {
-      this.workersform.value.id = this.paramId
-      this.PatientService.updateLogin(this.workersform.value, this.paramId).subscribe(
-        res => {
-          alert("Edited sucessfully");
-          console.log(res)
-          this.router.navigate(['/workers-details']);
-        })
-    } else {
-      this.PatientService.login(this.workersform.value).subscribe(
-        res => {
-          console.log(res)
-          this.router.navigate(['/workers-details']);
-        })
-    }
-
+    this.workerservice.createworker(this.workersform.value).subscribe((res) => {
+      this.router.navigate(['/workers-details']);
+    })
   }
-  getId() {
-    this.PatientService.getidData(this.paramId).subscribe(
-      res => {
-        console.log(res)
-        this.obj = res
-      })
+  getworkertype() {
+    this.workerservice.getbyworkerlist().subscribe((res) => {
+      console.log(res)
+      this.obj = res
+      this.obj = this.obj.data
+
+
+    })
   }
 
   resetForm() {
     this.workersform.reset();
   }
+  changeCountry(event: any) {
+    console.log(event.target.value);
+    this.stateId = event.target.value;
+    this.getstate(this.stateId);
+  }
+  changeState(event: any) {
+    console.log(event.target.value);
+    this.cityId = event.target.value;
+    this.getcity(this.cityId);
+  }
+
 
 }
