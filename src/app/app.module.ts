@@ -14,8 +14,8 @@ import { PatientlistComponent } from './patientlist/patientlist.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './../layout/navbar/navbar.component';
 import { FooterComponent } from './../layout/footer/footer.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatBadgeModule} from '@angular/material/badge';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatBadgeModule } from '@angular/material/badge';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { WorkersDetailsComponent } from './workers-details/workers-details.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
@@ -65,7 +65,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatIconModule,
     MatMenuModule,
     MatTableModule,
-    ],
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -105,9 +105,19 @@ export class WorkersComponent implements OnInit {
       return;
     }
     console.log(this.workersform.value)
+    if (this.workobj.id) {
+      console.log(this.workobj.id);
+      this.workersform.value.id = this.workobj.id;
+      this.workerservice.updateworkerid(this.workersform.value).subscribe((res) => {
+        console.log(res);
+        this.router.navigate(['/workers-details']);
+      });
+    }
+    else {
     this.workerservice.createworker(this.workersform.value).subscribe((res) => {
       this.router.navigate(['/workers-details']);
-    })
+    })}
+   
   }
   getworkertype() {
     this.workerservice.getbyworkerlist().subscribe((res) => {

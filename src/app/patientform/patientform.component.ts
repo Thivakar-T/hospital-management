@@ -72,18 +72,18 @@ export class PatientformComponent implements OnInit {
       this.patientedit(this.paramId)
     }
 
-    this.groups=[
-      "A+","A-","B+","B-","O+","O-","AB+","AB-"
-    ]
-    this.gender=[
-      "Male","Female","Others"
-    ]
-    this.maritalstatus=[
-      "Married","UnMarried","Single"
-    ]
-    this.title=[
-      "Mr","Mrs"
-    ]
+    // this.groups=[
+    //   "A+","A-","B+","B-","O+","O-","AB+","AB-"
+    // ]
+    // this.gender=[
+    //   "Male","Female","Others"
+    // ]
+    // this.maritalstatus=[
+    //   "Married","UnMarried","Single"
+    // ]
+    // this.title=[
+    //   "Mr","Mrs"
+    // ]
   }
   get f() {
     return this.patientform.controls
@@ -119,7 +119,6 @@ export class PatientformComponent implements OnInit {
     this.PatientService.editpatientid(id).subscribe((res) => {
       this.patientobj = res.data;
     });
-
   }
   
   submit() {
@@ -129,9 +128,20 @@ export class PatientformComponent implements OnInit {
       return;
     }
     console.log(this.patientform.value)
+    if (this.patientobj.id) {
+      console.log(this.patientobj.id);
+      this.patientform.value.id = this.patientobj.id;
+      this.PatientService.updatepatientid(this.patientform.value).subscribe((res) => {
+        console.log(res);
+        this.result = res;
+        this.getpatienttype();
+        this.router.navigate(['/patientlist']);
+      });
+    }
+    else {
     this.PatientService.createpatient(this.patientform.value).subscribe((res) => {
       this.router.navigate(['/patientlist']);
-    })
+    })}
   }
   getpatienttype() {
     this.PatientService.getbypatientlist().subscribe((res) => {
@@ -144,7 +154,7 @@ export class PatientformComponent implements OnInit {
   }
   patientupdate() {
     console.log(this.patientform.value);
-    if (this.patientobj.id) {
+    if (this.patientform.value.id) {
       console.log(this.patientobj.id);
       this.patientform.value.id = this.patientobj.id;
       this.PatientService.updatepatientid(this.patientform.value).subscribe((res) => {
@@ -162,11 +172,9 @@ export class PatientformComponent implements OnInit {
         this.getpatienttype();
         this.router.navigateByUrl('/patientlist');
       })
-
     }
-
   }
-
+  
   resetForm() {
     this.patientform.reset();
   }

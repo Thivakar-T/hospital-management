@@ -27,7 +27,7 @@ export class PatientService {
   editpatientid(id: any) {
     return this.http.get<any>(this.editpatient + '/' + id)
   }
-  updatepatientid(workersform: any) {
-    return this.http.put<any>(this.updatepatient, workersform)
+  updatepatientid(patientform: any) {
+    return this.http.put<any>(this.updatepatient, patientform)
   }
 } 
